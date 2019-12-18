@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div id="root" v-cloak class="main">
+    <div id="root" v-cloak class="main-root">
       <div class="content">
         <div class="weui-pull-to-refresh__layer">
           <div class="weui-pull-to-refresh__arrow"></div>
@@ -57,7 +57,7 @@
         <dl class="focuspic">
           <dt v-for="item in lives">
             <a :href="item.url">
-              <div>
+              <div class="live-pic">
                 <img :src="item.peopleInfo.pic" />
               </div>
               <h1>{{item.title}}</h1>
@@ -70,7 +70,7 @@
             @click="toDetail(item)"
             class="bloglist__item"
           >
-            <div class="blogpic">
+            <div class="blogpic" :class="{play:(item.type==6 ||item.type==5)}">
               <img :src="item.pic[0]" />
             </div>
             <span class="item__title">{{item.title}}</span>

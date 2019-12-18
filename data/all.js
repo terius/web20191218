@@ -102,9 +102,9 @@ var detail = [
     time: "3小时前",
     type: types.dsp,
     isRefresh: false,
-    url: "",
+    url: "/data/video/1.mp4",
     pic: ["/data/img/1/2/海边.jpg"],
-    text: "",
+    text: "海边旅游海边旅游海边旅游海边旅",
     addTime: "12-5 12:30"
   },
   {
@@ -166,7 +166,7 @@ var detail = [
     time: "3小时前",
     type: types.dsp,
     isRefresh: false,
-    url: "",
+    url: "/data/video/2.mp4",
     pic: ["/data/img/8/2/雪.jpg"],
     addTime: "12-5 12:30"
   },

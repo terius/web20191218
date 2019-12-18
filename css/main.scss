@@ -24,7 +24,7 @@ a {
 }
 
 //*************************首页*************************//
-.main {
+.main-root {
   .content {
     position: absolute;
     left: 0;
@@ -33,6 +33,24 @@ a {
     overflow-y: auto;
     overflow-x: hidden;
     bottom: 0;
+  }
+
+  .focuspic {
+    .live-pic {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0.3rem;
+        right: 0;
+        bottom: 0.2rem;
+        margin: 0 auto;
+        height: 0.8rem;
+        width: 2rem;
+        background: url(/img/live.png) no-repeat;
+        background-size: contain;
+      }
+    }
   }
   .type li {
     width: 16% !important;
@@ -55,7 +73,19 @@ a {
       width: 50%;
 
       .blogpic {
+        position: relative;
         height: 10rem;
+
+        &.play::after {
+          content: "";
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
+          width: 1.375rem;
+          height: 1.375rem;
+          background: url(/img/playb.png) no-repeat;
+          background-size: contain;
+        }
       }
       .item__title {
         display: inline-block;
@@ -75,7 +105,7 @@ a {
 }
 
 //*************************详细页*************************//
-.detail {
+.detail-root {
   .detail-pic {
     position: relative;
     padding: 0.5rem 1rem 0;
@@ -131,11 +161,15 @@ a {
 }
 
 //*************************个人博客*************************//
-.blog {
+.blog-root {
   .typebox {
     margin: 0.5rem 0;
   }
   .type li {
     width: 3rem !important;
   }
+}
+
+//*************************视频播放*************************//
+.video-root {
 }
