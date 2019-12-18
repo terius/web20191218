@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>个人中心</i><em></em>
+    </header>
+    <div class="container">
+        <div class="centerhead">
+            <img src="../img/pic1.png" class='portrait' />
+            <div class="centerheadcont">
+                <ul>
+                    <li>
+                        <h1>9</h1>
+                        <p>关注</p>
+                    </li>
+                    <li>
+                        <h1>1</h1>
+                        <p>粉丝</p>
+                    </li>
+                    <li>
+                        <h1>0</h1>
+                        <p>获赞与收藏</p>
+                    </li>
+                </ul>
+                <div class="handle">
+                    <span class="editdata" onclick="persondata()">编辑资料</span>
+                    <img src="../img/set.png" class="setbtn" onclick="set()" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="list" onclick="mypush()">
+                <label>我的发布</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list">
+                <label>我的相册</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list" onclick="myLike()">
+                <label>我的点赞</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list" onclick="mycollect()">
+                <label>我的收藏</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list" onclick="myAttendence()">
+                <label>我的关注</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="line"></div>
+            <div class="list" onclick="myreport()">
+                <label>我的打赏</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list" onclick="mymoney()">
+                <label>我的钱包</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="line"></div>
+            <div class="list" onclick="mycode()">
+                <label>我的二维码</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+            <div class="list">
+                <label>反馈与帮助</label>
+                <img src="../img/listmore.png" class="listmore">
+            </div>
+        </div>
+    </div>
+    <footer class="nav">
+        <ul>
+            <li>
+                <div onclick="index()">
+                    <img src="../img/icon01.png" />
+                    <h1>首页</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="blog()">
+                    <img src="../img/icon02.png" />
+                    <h1>博客</h1>
+                </div>
+            </li>
+            <li class="publish" >
+                <div onclick="pubart()">
+                    <img src="../img/icon03.png" />
+                </div>
+            </li>
+            <li>
+                <div onclick="messcenter()">
+                    <img src="../img/icon04.png" />
+                    <h1>消息</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="personcenter()">
+                    <img src="../img/icon05_pre.png" />
+                    <h1>我的</h1>
+                </div>
+            </li>
+        </ul>
+    </footer>
+    <script>
+        $(".portrait").click(function () {
+            window.location.href = 'ChoosePortrait.html'
+        })
+        function persondata() {
+            window.location.href = 'SetPersonalData.html'
+        }
+        function set() {
+            window.location.href = 'SetCenter.html'
+        }
+        function mycode() {
+            window.location.href = 'MyQrCode.html'
+        }
+        function mymoney() {
+            window.location.href = 'Wallet.html'
+        }
+        function index() {
+            window.location.href = 'Index.html'
+        }
+        function blog() {
+            window.location.href = 'Login.html'
+        }
+        function messcenter() {
+            window.location.href = 'MessageCenter.html'
+        }
+        function personcenter() {
+            window.location.href = 'PersonCenter.html'
+        }
+        function myreport() {
+            window.location.href = 'MyReport.html'
+        }
+        function myLike() {
+            window.location.href = 'MyLike.html'
+        }
+        function mycollect() {
+            window.location.href = 'MyCollect.html'
+        }
+        function myAttendence(){
+            window.location.href = 'MyAttendence.html'
+            
+        }
+        function pubart(){
+            window.location.href = 'BlogType.html'
+        }
+        function mypush(){
+            window.location.href = 'Live.html'
+        }
+        
+    </script>
+</body>
+
+</html>

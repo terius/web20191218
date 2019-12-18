@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更换手机号</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>更换手机号</i><em class="submit">完成</em>
+    </header>
+    <div>
+        <div class="setbox">
+            <div class="pubnotitlist">
+                <input placeholder="验证码" />
+                <span class="code">获取验证码</span>
+            </div>
+            <div class="pubtitlist">
+                <label>验证码</label>
+                <div class="pubtitcont pubtitcontts">
+                    <input placeholder="请输入验证码" /></div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".submit").click(function () {
+            window.location.href = 'SetCenter.html';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+.checkbox span{
+    text-align: center;
+}
+.checkbox.act span:before{
+    content: '√';
+    display: block;
+}

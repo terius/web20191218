@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的分类</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>我的分类</i><em></em>
+    </header>
+    <div class="coverscroll">
+        <h1 class="covertit">时间筛选</h1>
+        <div class="covertime">
+            <input type="date" /> ~ <input type="date" />
+        </div>
+        <h1 class="covertit">消费类型<span class="addtype">添加</span></h1>
+        <ul class="coverul">
+            <li>
+                <div>餐饮</div>
+            </li>
+            <li>
+                <div>服饰</div>
+            </li>
+            <li>
+                <div>生活日用</div>
+            </li>
+        </ul>
+        <h1 class="covertit">其他分类<span class="addtype">添加</span></h1>
+        <ul class="coverul">
+            <li>
+                <div>经营所得</div>
+            </li>
+            <li>
+                <div>职业酬劳</div>
+            </li>
+            <li>
+                <div>转账充值</div>
+            </li>
+        </ul>
+    </div>
+    <div class="addcover" style="display:none">
+        <div class="cover"></div>
+        <div class="addcoverbox">
+            <div class="fen"><label>添加分类</label>
+                <input type="text" /></div>
+            <div class="docublebtn docublebtnts">
+                <div onclick="Withdrawal()"><span>关闭</span></div>
+                <div onclick="Recharge()" class="topup"><span>保存</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".addtype").click(function(){
+            $(".addcover").show();
+        })
+        $(".docublebtnts span").click(function(){
+            $(".addcover").hide();
+        })
+        $(".cover").click(function(){
+            $(".addcover").hide();
+        })
+    </script>
+</body>
+
+</html>

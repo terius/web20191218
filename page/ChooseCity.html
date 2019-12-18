@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择城市</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <!-- <link rel="stylesheet" href="../css/register.css" /> -->
+    <link rel="stylesheet" href="../css/city.css" />
+    <script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <!-- <script src="../js/register.js" type="text/javascript"></script> -->
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>城市选择</i><em></em>
+    </header>
+    <div class="city">
+        <!-- <div
+            style="text-align: center; position: fixed; top: 0px; height: 32px; width: 100%; line-height: 32px; z-index: 300; background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px;">
+            我的城市：&nbsp;&nbsp;<span id="qyxs" style="color: rgb(255, 0, 0);">淮南市</span></div> -->
+        <div class="city-wrapper city-wrapper-hook">
+            <div class="scroller-hook" id="scroller-hook">
+                <div class="cities cities-hook">
+                    <div>
+                        <div class="title">★热门城市</div>
+                        <ul>
+                            <li data-name="北京市" class="item city-click"><span class="border-1px name">北京市</span></li>
+                            <li data-name="上海市" class="item city-click"><span class="border-1px name">上海市</span></li>
+                            <li data-name="深圳市" class="item city-click"><span class="border-1px name">深圳市</span></li>
+                            <li data-name="广州市" class="item city-click"><span class="border-1px name">广州市</span></li>
+                            <li data-name="武汉市" class="item city-click"><span class="border-1px name">武汉市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">A</div>
+                        <ul>
+                            <li data-name="鞍山市" class="item city-click"><span class="border-1px name">鞍山市</span></li>
+                            <li data-name="安庆市" class="item city-click"><span class="border-1px name">安庆市</span></li>
+                            <li data-name="安阳市" class="item city-click"><span class="border-1px name">安阳市</span></li>
+                            <li data-name="阿拉善盟" class="item city-click"><span class="border-1px name">阿拉善盟</span></li>
+                            <li data-name="阿坝州" class="item city-click"><span class="border-1px name">阿坝州</span></li>
+                            <li data-name="安顺市" class="item city-click"><span class="border-1px name">安顺市</span></li>
+                            <li data-name="阿里地区" class="item city-click"><span class="border-1px name">阿里地区</span></li>
+                            <li data-name="安康市" class="item city-click"><span class="border-1px name">安康市</span></li>
+                            <li data-name="阿克苏地区" class="item city-click"><span class="border-1px name">阿克苏地区</span>
+                            </li>
+                            <li data-name="阿勒泰地区" class="item city-click"><span class="border-1px name">阿勒泰地区</span>
+                            </li>
+                            <li data-name="阿拉尔市" class="item city-click"><span class="border-1px name">阿拉尔市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">B</div>
+                        <ul>
+                            <li data-name="北京市" class="item city-click"><span class="border-1px name">北京市</span></li>
+                            <li data-name="保定市" class="item city-click"><span class="border-1px name">保定市</span></li>
+                            <li data-name="包头市" class="item city-click"><span class="border-1px name">包头市</span></li>
+                            <li data-name="本溪市" class="item city-click"><span class="border-1px name">本溪市</span></li>
+                            <li data-name="蚌埠市" class="item city-click"><span class="border-1px name">蚌埠市</span></li>
+                            <li data-name="北海市" class="item city-click"><span class="border-1px name">北海市</span></li>
+                            <li data-name="滨州市" class="item city-click"><span class="border-1px name">滨州市</span></li>
+                            <li data-name="宝鸡市" class="item city-click"><span class="border-1px name">宝鸡市</span></li>
+                            <li data-name="亳州市" class="item city-click"><span class="border-1px name">亳州市</span></li>
+                            <li data-name="巴彦淖尔市" class="item city-click"><span class="border-1px name">巴彦淖尔市</span>
+                            </li>
+                            <li data-name="白山市" class="item city-click"><span class="border-1px name">白山市</span></li>
+                            <li data-name="白城市" class="item city-click"><span class="border-1px name">白城市</span></li>
+                            <li data-name="百色市" class="item city-click"><span class="border-1px name">百色市</span></li>
+                            <li data-name="白沙黎族自治县" class="item city-click"><span class="border-1px name">白沙黎族自治县</span>
+                            </li>
+                            <li data-name="巴中市" class="item city-click"><span class="border-1px name">巴中市</span></li>
+                            <li data-name="毕节地区" class="item city-click"><span class="border-1px name">毕节地区</span></li>
+                            <li data-name="保山市" class="item city-click"><span class="border-1px name">保山市</span></li>
+                            <li data-name="白银市" class="item city-click"><span class="border-1px name">白银市</span></li>
+                            <li data-name="巴音郭楞州" class="item city-click"><span class="border-1px name">巴音郭楞州</span>
+                            </li>
+                            <li data-name="博尔塔拉州" class="item city-click"><span class="border-1px name">博尔塔拉州</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">C</div>
+                        <ul>
+                            <li data-name="成都市" class="item city-click"><span class="border-1px name">成都市</span></li>
+                            <li data-name="重庆市" class="item city-click"><span class="border-1px name">重庆市</span></li>
+                            <li data-name="长沙市" class="item city-click"><span class="border-1px name">长沙市</span></li>
+                            <li data-name="长春市" class="item city-click"><span class="border-1px name">长春市</span></li>
+                            <li data-name="常州市" class="item city-click"><span class="border-1px name">常州市</span></li>
+                            <li data-name="沧州市" class="item city-click"><span class="border-1px name">沧州市</span></li>
+                            <li data-name="承德市" class="item city-click"><span class="border-1px name">承德市</span></li>
+                            <li data-name="常德市" class="item city-click"><span class="border-1px name">常德市</span></li>
+                            <li data-name="郴州市" class="item city-click"><span class="border-1px name">郴州市</span></li>
+                            <li data-name="长治市" class="item city-click"><span class="border-1px name">长治市</span></li>
+                            <li data-name="滁州市" class="item city-click"><span class="border-1px name">滁州市</span></li>
+                            <li data-name="池州市" class="item city-click"><span class="border-1px name">池州市</span></li>
+                            <li data-name="赤峰市" class="item city-click"><span class="border-1px name">赤峰市</span></li>
+                            <li data-name="巢湖市" class="item city-click"><span class="border-1px name">巢湖市</span></li>
+                            <li data-name="朝阳市" class="item city-click"><span class="border-1px name">朝阳市</span></li>
+                            <li data-name="潮州市" class="item city-click"><span class="border-1px name">潮州市</span></li>
+                            <li data-name="崇左市" class="item city-click"><span class="border-1px name">崇左市</span></li>
+                            <li data-name="澄迈县" class="item city-click"><span class="border-1px name">澄迈县</span></li>
+                            <li data-name="楚雄州" class="item city-click"><span class="border-1px name">楚雄州</span></li>
+                            <li data-name="昌都地区" class="item city-click"><span class="border-1px name">昌都地区</span></li>
+                            <li data-name="昌吉州" class="item city-click"><span class="border-1px name">昌吉州</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">D</div>
+                        <ul>
+                            <li data-name="大连市" class="item city-click"><span class="border-1px name">大连市</span></li>
+                            <li data-name="东莞市" class="item city-click"><span class="border-1px name">东莞市</span></li>
+                            <li data-name="大庆市" class="item city-click"><span class="border-1px name">大庆市</span></li>
+                            <li data-name="东营市" class="item city-click"><span class="border-1px name">东营市</span></li>
+                            <li data-name="德州市" class="item city-click"><span class="border-1px name">德州市</span></li>
+                            <li data-name="大同市" class="item city-click"><span class="border-1px name">大同市</span></li>
+                            <li data-name="大理州" class="item city-click"><span class="border-1px name">大理州</span></li>
+                            <li data-name="丹东市" class="item city-click"><span class="border-1px name">丹东市</span></li>
+                            <li data-name="德阳市" class="item city-click"><span class="border-1px name">德阳市</span></li>
+                            <li data-name="大兴安岭地区" class="item city-click"><span class="border-1px name">大兴安岭地区</span>
+                            </li>
+                            <li data-name="儋州市" class="item city-click"><span class="border-1px name">儋州市</span></li>
+                            <li data-name="东方市" class="item city-click"><span class="border-1px name">东方市</span></li>
+                            <li data-name="定安县" class="item city-click"><span class="border-1px name">定安县</span></li>
+                            <li data-name="达州市" class="item city-click"><span class="border-1px name">达州市</span></li>
+                            <li data-name="德宏州" class="item city-click"><span class="border-1px name">德宏州</span></li>
+                            <li data-name="迪庆州" class="item city-click"><span class="border-1px name">迪庆州</span></li>
+                            <li data-name="定西市" class="item city-click"><span class="border-1px name">定西市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">E</div>
+                        <ul>
+                            <li data-name="鄂尔多斯市" class="item city-click"><span class="border-1px name">鄂尔多斯市</span>
+                            </li>
+                            <li data-name="鄂州市" class="item city-click"><span class="border-1px name">鄂州市</span></li>
+                            <li data-name="恩施州" class="item city-click"><span class="border-1px name">恩施州</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">F</div>
+                        <ul>
+                            <li data-name="福州市" class="item city-click"><span class="border-1px name">福州市</span></li>
+                            <li data-name="佛山市" class="item city-click"><span class="border-1px name">佛山市</span></li>
+                            <li data-name="抚顺市" class="item city-click"><span class="border-1px name">抚顺市</span></li>
+                            <li data-name="阜新市" class="item city-click"><span class="border-1px name">阜新市</span></li>
+                            <li data-name="阜阳市" class="item city-click"><span class="border-1px name">阜阳市</span></li>
+                            <li data-name="抚州市" class="item city-click"><span class="border-1px name">抚州市</span></li>
+                            <li data-name="防城港市" class="item city-click"><span class="border-1px name">防城港市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">G</div>
+                        <ul>
+                            <li data-name="广州市" class="item city-click"><span class="border-1px name">广州市</span></li>
+                            <li data-name="贵阳市" class="item city-click"><span class="border-1px name">贵阳市</span></li>
+                            <li data-name="赣州市" class="item city-click"><span class="border-1px name">赣州市</span></li>
+                            <li data-name="桂林市" class="item city-click"><span class="border-1px name">桂林市</span></li>
+                            <li data-name="贵港市" class="item city-click"><span class="border-1px name">贵港市</span></li>
+                            <li data-name="广元市" class="item city-click"><span class="border-1px name">广元市</span></li>
+                            <li data-name="广安市" class="item city-click"><span class="border-1px name">广安市</span></li>
+                            <li data-name="甘孜州" class="item city-click"><span class="border-1px name">甘孜州</span></li>
+                            <li data-name="甘南州" class="item city-click"><span class="border-1px name">甘南州</span></li>
+                            <li data-name="固原市" class="item city-click"><span class="border-1px name">固原市</span></li>
+                            <li data-name="果洛州" class="item city-click"><span class="border-1px name">果洛州</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">H</div>
+                        <ul>
+                            <li data-name="杭州市" class="item city-click"><span class="border-1px name">杭州市</span></li>
+                            <li data-name="合肥市" class="item city-click"><span class="border-1px name">合肥市</span></li>
+                            <li data-name="哈尔滨市" class="item city-click"><span class="border-1px name">哈尔滨市</span></li>
+                            <li data-name="呼和浩特市" class="item city-click"><span class="border-1px name">呼和浩特市</span>
+                            </li>
+                            <li data-name="邯郸市" class="item city-click"><span class="border-1px name">邯郸市</span></li>
+                            <li data-name="葫芦岛市" class="item city-click"><span class="border-1px name">葫芦岛市</span></li>
+                            <li data-name="衡水市" class="item city-click"><span class="border-1px name">衡水市</span></li>
+                            <li data-name="海口市" class="item city-click"><span class="border-1px name">海口市</span></li>
+                            <li data-name="湖州市" class="item city-click"><span class="border-1px name">湖州市</span></li>
+                            <li data-name="淮安市" class="item city-click"><span class="border-1px name">淮安市</span></li>
+                            <li data-name="衡阳市" class="item city-click"><span class="border-1px name">衡阳市</span></li>
+                            <li data-name="汉中市" class="item city-click"><span class="border-1px name">汉中市</span></li>
+                            <li data-name="菏泽市" class="item city-click"><span class="border-1px name">菏泽市</span></li>
+                            <li data-name="惠州市" class="item city-click"><span class="border-1px name">惠州市</span></li>
+                            <li data-name="黄山市" class="item city-click"><span class="border-1px name">黄山市</span></li>
+                            <li data-name="淮南市" class="item city-click"><span class="border-1px name">淮南市</span></li>
+                            <li data-name="淮北市" class="item city-click"><span class="border-1px name">淮北市</span></li>
+                            <li data-name="呼伦贝尔市" class="item city-click"><span class="border-1px name">呼伦贝尔市</span>
+                            </li>
+                            <li data-name="鹤岗市" class="item city-click"><span class="border-1px name">鹤岗市</span></li>
+                            <li data-name="黑河市" class="item city-click"><span class="border-1px name">黑河市</span></li>
+                            <li data-name="黄石市" class="item city-click"><span class="border-1px name">黄石市</span></li>
+                            <li data-name="黄冈市" class="item city-click"><span class="border-1px name">黄冈市</span></li>
+                            <li data-name="怀化市" class="item city-click"><span class="border-1px name">怀化市</span></li>
+                            <li data-name="鹤壁市" class="item city-click"><span class="border-1px name">鹤壁市</span></li>
+                            <li data-name="河源市" class="item city-click"><span class="border-1px name">河源市</span></li>
+                            <li data-name="贺州市" class="item city-click"><span class="border-1px name">贺州市</span></li>
+                            <li data-name="河池市" class="item city-click"><span class="border-1px name">河池市</span></li>
+                            <li data-name="红河州" class="item city-click"><span class="border-1px name">红河州</span></li>
+                            <li data-name="海东地区" class="item city-click"><span class="border-1px name">海东地区</span></li>
+                            <li data-name="海北州" class="item city-click"><span class="border-1px name">海北州</span></li>
+                            <li data-name="黄南州" class="item city-click"><span class="border-1px name">黄南州</span></li>
+                            <li data-name="海南州" class="item city-click"><span class="border-1px name">海南州</span></li>
+                            <li data-name="海西州" class="item city-click"><span class="border-1px name">海西州</span></li>
+                            <li data-name="哈密地区" class="item city-click"><span class="border-1px name">哈密地区</span></li>
+                            <li data-name="和田地区" class="item city-click"><span class="border-1px name">和田地区</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">J</div>
+                        <ul>
+                            <li data-name="济南市" class="item city-click"><span class="border-1px name">济南市</span></li>
+                            <li data-name="锦州市" class="item city-click"><span class="border-1px name">锦州市</span></li>
+                            <li data-name="晋中市" class="item city-click"><span class="border-1px name">晋中市</span></li>
+                            <li data-name="吉林市" class="item city-click"><span class="border-1px name">吉林市</span></li>
+                            <li data-name="济宁市" class="item city-click"><span class="border-1px name">济宁市</span></li>
+                            <li data-name="金华市" class="item city-click"><span class="border-1px name">金华市</span></li>
+                            <li data-name="嘉兴市" class="item city-click"><span class="border-1px name">嘉兴市</span></li>
+                            <li data-name="九江市" class="item city-click"><span class="border-1px name">九江市</span></li>
+                            <li data-name="荆州市" class="item city-click"><span class="border-1px name">荆州市</span></li>
+                            <li data-name="景德镇市" class="item city-click"><span class="border-1px name">景德镇市</span></li>
+                            <li data-name="江门市" class="item city-click"><span class="border-1px name">江门市</span></li>
+                            <li data-name="揭阳市" class="item city-click"><span class="border-1px name">揭阳市</span></li>
+                            <li data-name="焦作市" class="item city-click"><span class="border-1px name">焦作市</span></li>
+                            <li data-name="晋城市" class="item city-click"><span class="border-1px name">晋城市</span></li>
+                            <li data-name="鸡西市" class="item city-click"><span class="border-1px name">鸡西市</span></li>
+                            <li data-name="佳木斯市" class="item city-click"><span class="border-1px name">佳木斯市</span></li>
+                            <li data-name="吉安市" class="item city-click"><span class="border-1px name">吉安市</span></li>
+                            <li data-name="荆门市" class="item city-click"><span class="border-1px name">荆门市</span></li>
+                            <li data-name="济源市" class="item city-click"><span class="border-1px name">济源市</span></li>
+                            <li data-name="金昌市" class="item city-click"><span class="border-1px name">金昌市</span></li>
+                            <li data-name="嘉峪关市" class="item city-click"><span class="border-1px name">嘉峪关市</span></li>
+                            <li data-name="酒泉市" class="item city-click"><span class="border-1px name">酒泉市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">K</div>
+                        <ul>
+                            <li data-name="昆明市" class="item city-click"><span class="border-1px name">昆明市</span></li>
+                            <li data-name="开封市" class="item city-click"><span class="border-1px name">开封市</span></li>
+                            <li data-name="喀什地区" class="item city-click"><span class="border-1px name">喀什地区</span></li>
+                            <li data-name="克拉玛依市" class="item city-click"><span class="border-1px name">克拉玛依市</span>
+                            </li>
+                            <li data-name="克孜勒苏柯州" class="item city-click"><span class="border-1px name">克孜勒苏柯州</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">L</div>
+                        <ul>
+                            <li data-name="洛阳市" class="item city-click"><span class="border-1px name">洛阳市</span></li>
+                            <li data-name="兰州市" class="item city-click"><span class="border-1px name">兰州市</span></li>
+                            <li data-name="廊坊市" class="item city-click"><span class="border-1px name">廊坊市</span></li>
+                            <li data-name="临沂市" class="item city-click"><span class="border-1px name">临沂市</span></li>
+                            <li data-name="辽阳市" class="item city-click"><span class="border-1px name">辽阳市</span></li>
+                            <li data-name="连云港市" class="item city-click"><span class="border-1px name">连云港市</span></li>
+                            <li data-name="泸州市" class="item city-click"><span class="border-1px name">泸州市</span></li>
+                            <li data-name="莱芜市" class="item city-click"><span class="border-1px name">莱芜市</span></li>
+                            <li data-name="聊城市" class="item city-click"><span class="border-1px name">聊城市</span></li>
+                            <li data-name="柳州市" class="item city-click"><span class="border-1px name">柳州市</span></li>
+                            <li data-name="丽江市" class="item city-click"><span class="border-1px name">丽江市</span></li>
+                            <li data-name="丽水市" class="item city-click"><span class="border-1px name">丽水市</span></li>
+                            <li data-name="拉萨市" class="item city-click"><span class="border-1px name">拉萨市</span></li>
+                            <li data-name="六安市" class="item city-click"><span class="border-1px name">六安市</span></li>
+                            <li data-name="临汾市" class="item city-click"><span class="border-1px name">临汾市</span></li>
+                            <li data-name="吕梁市" class="item city-click"><span class="border-1px name">吕梁市</span></li>
+                            <li data-name="辽源市" class="item city-click"><span class="border-1px name">辽源市</span></li>
+                            <li data-name="龙岩市" class="item city-click"><span class="border-1px name">龙岩市</span></li>
+                            <li data-name="娄底市" class="item city-click"><span class="border-1px name">娄底市</span></li>
+                            <li data-name="漯河市" class="item city-click"><span class="border-1px name">漯河市</span></li>
+                            <li data-name="来宾市" class="item city-click"><span class="border-1px name">来宾市</span></li>
+                            <li data-name="临高县" class="item city-click"><span class="border-1px name">临高县</span></li>
+                            <li data-name="乐山市" class="item city-click"><span class="border-1px name">乐山市</span></li>
+                            <li data-name="凉山州" class="item city-click"><span class="border-1px name">凉山州</span></li>
+                            <li data-name="六盘水市" class="item city-click"><span class="border-1px name">六盘水市</span></li>
+                            <li data-name="临沧市" class="item city-click"><span class="border-1px name">临沧市</span></li>
+                            <li data-name="林芝地区" class="item city-click"><span class="border-1px name">林芝地区</span></li>
+                            <li data-name="陇南市" class="item city-click"><span class="border-1px name">陇南市</span></li>
+                            <li data-name="临夏州" class="item city-click"><span class="border-1px name">临夏州</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">M</div>
+                        <ul>
+                            <li data-name="绵阳市" class="item city-click"><span class="border-1px name">绵阳市</span></li>
+                            <li data-name="马鞍山市" class="item city-click"><span class="border-1px name">马鞍山市</span></li>
+                            <li data-name="牡丹江市" class="item city-click"><span class="border-1px name">牡丹江市</span></li>
+                            <li data-name="茂名市" class="item city-click"><span class="border-1px name">茂名市</span></li>
+                            <li data-name="梅州市" class="item city-click"><span class="border-1px name">梅州市</span></li>
+                            <li data-name="眉山市" class="item city-click"><span class="border-1px name">眉山市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">N</div>
+                        <ul>
+                            <li data-name="南京市" class="item city-click"><span class="border-1px name">南京市</span></li>
+                            <li data-name="宁波市" class="item city-click"><span class="border-1px name">宁波市</span></li>
+                            <li data-name="南宁市" class="item city-click"><span class="border-1px name">南宁市</span></li>
+                            <li data-name="南昌市" class="item city-click"><span class="border-1px name">南昌市</span></li>
+                            <li data-name="南充市" class="item city-click"><span class="border-1px name">南充市</span></li>
+                            <li data-name="南通市" class="item city-click"><span class="border-1px name">南通市</span></li>
+                            <li data-name="南阳市" class="item city-click"><span class="border-1px name">南阳市</span></li>
+                            <li data-name="宁德市" class="item city-click"><span class="border-1px name">宁德市</span></li>
+                            <li data-name="南平市" class="item city-click"><span class="border-1px name">南平市</span></li>
+                            <li data-name="内江市" class="item city-click"><span class="border-1px name">内江市</span></li>
+                            <li data-name="怒江州" class="item city-click"><span class="border-1px name">怒江州</span></li>
+                            <li data-name="那曲地区" class="item city-click"><span class="border-1px name">那曲地区</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">P</div>
+                        <ul>
+                            <li data-name="平顶山市" class="item city-click"><span class="border-1px name">平顶山市</span></li>
+                            <li data-name="攀枝花市" class="item city-click"><span class="border-1px name">攀枝花市</span></li>
+                            <li data-name="莆田市" class="item city-click"><span class="border-1px name">莆田市</span></li>
+                            <li data-name="盘锦市" class="item city-click"><span class="border-1px name">盘锦市</span></li>
+                            <li data-name="濮阳市" class="item city-click"><span class="border-1px name">濮阳市</span></li>
+                            <li data-name="萍乡市" class="item city-click"><span class="border-1px name">萍乡市</span></li>
+                            <li data-name="普洱市" class="item city-click"><span class="border-1px name">普洱市</span></li>
+                            <li data-name="平凉市" class="item city-click"><span class="border-1px name">平凉市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">Q</div>
+                        <ul>
+                            <li data-name="青岛市" class="item city-click"><span class="border-1px name">青岛市</span></li>
+                            <li data-name="泉州市" class="item city-click"><span class="border-1px name">泉州市</span></li>
+                            <li data-name="秦皇岛市" class="item city-click"><span class="border-1px name">秦皇岛市</span></li>
+                            <li data-name="齐齐哈尔市" class="item city-click"><span class="border-1px name">齐齐哈尔市</span>
+                            </li>
+                            <li data-name="曲靖市" class="item city-click"><span class="border-1px name">曲靖市</span></li>
+                            <li data-name="衢州市" class="item city-click"><span class="border-1px name">衢州市</span></li>
+                            <li data-name="清远市" class="item city-click"><span class="border-1px name">清远市</span></li>
+                            <li data-name="七台河市" class="item city-click"><span class="border-1px name">七台河市</span></li>
+                            <li data-name="潜江市" class="item city-click"><span class="border-1px name">潜江市</span></li>
+                            <li data-name="钦州市" class="item city-click"><span class="border-1px name">钦州市</span></li>
+                            <li data-name="琼海市" class="item city-click"><span class="border-1px name">琼海市</span></li>
+                            <li data-name="黔西南州" class="item city-click"><span class="border-1px name">黔西南州</span></li>
+                            <li data-name="黔东南州" class="item city-click"><span class="border-1px name">黔东南州</span></li>
+                            <li data-name="黔南州" class="item city-click"><span class="border-1px name">黔南州</span></li>
+                            <li data-name="庆阳市" class="item city-click"><span class="border-1px name">庆阳市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">R</div>
+                        <ul>
+                            <li data-name="日照市" class="item city-click"><span class="border-1px name">日照市</span></li>
+                            <li data-name="日喀则地区" class="item city-click"><span class="border-1px name">日喀则地区</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">S</div>
+                        <ul>
+                            <li data-name="深圳市" class="item city-click"><span class="border-1px name">深圳市</span></li>
+                            <li data-name="上海市" class="item city-click"><span class="border-1px name">上海市</span></li>
+                            <li data-name="沈阳市" class="item city-click"><span class="border-1px name">沈阳市</span></li>
+                            <li data-name="石家庄市" class="item city-click"><span class="border-1px name">石家庄市</span></li>
+                            <li data-name="苏州市" class="item city-click"><span class="border-1px name">苏州市</span></li>
+                            <li data-name="三亚市" class="item city-click"><span class="border-1px name">三亚市</span></li>
+                            <li data-name="绍兴市" class="item city-click"><span class="border-1px name">绍兴市</span></li>
+                            <li data-name="绥化市" class="item city-click"><span class="border-1px name">绥化市</span></li>
+                            <li data-name="四平市" class="item city-click"><span class="border-1px name">四平市</span></li>
+                            <li data-name="宿迁市" class="item city-click"><span class="border-1px name">宿迁市</span></li>
+                            <li data-name="汕头市" class="item city-click"><span class="border-1px name">汕头市</span></li>
+                            <li data-name="商丘市" class="item city-click"><span class="border-1px name">商丘市</span></li>
+                            <li data-name="石河子市" class="item city-click"><span class="border-1px name">石河子市</span></li>
+                            <li data-name="宿州市" class="item city-click"><span class="border-1px name">宿州市</span></li>
+                            <li data-name="朔州市" class="item city-click"><span class="border-1px name">朔州市</span></li>
+                            <li data-name="松原市" class="item city-click"><span class="border-1px name">松原市</span></li>
+                            <li data-name="双鸭山市" class="item city-click"><span class="border-1px name">双鸭山市</span></li>
+                            <li data-name="上饶市" class="item city-click"><span class="border-1px name">上饶市</span></li>
+                            <li data-name="三明市" class="item city-click"><span class="border-1px name">三明市</span></li>
+                            <li data-name="十堰市" class="item city-click"><span class="border-1px name">十堰市</span></li>
+                            <li data-name="随州市" class="item city-click"><span class="border-1px name">随州市</span></li>
+                            <li data-name="神农架林区" class="item city-click"><span class="border-1px name">神农架林区</span>
+                            </li>
+                            <li data-name="邵阳市" class="item city-click"><span class="border-1px name">邵阳市</span></li>
+                            <li data-name="三门峡市" class="item city-click"><span class="border-1px name">三门峡市</span></li>
+                            <li data-name="韶关市" class="item city-click"><span class="border-1px name">韶关市</span></li>
+                            <li data-name="汕尾市" class="item city-click"><span class="border-1px name">汕尾市</span></li>
+                            <li data-name="遂宁市" class="item city-click"><span class="border-1px name">遂宁市</span></li>
+                            <li data-name="山南地区" class="item city-click"><span class="border-1px name">山南地区</span></li>
+                            <li data-name="商洛市" class="item city-click"><span class="border-1px name">商洛市</span></li>
+                            <li data-name="石嘴山市" class="item city-click"><span class="border-1px name">石嘴山市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">T</div>
+                        <ul>
+                            <li data-name="天津市" class="item city-click"><span class="border-1px name">天津市</span></li>
+                            <li data-name="太原市" class="item city-click"><span class="border-1px name">太原市</span></li>
+                            <li data-name="唐山市" class="item city-click"><span class="border-1px name">唐山市</span></li>
+                            <li data-name="铁岭市" class="item city-click"><span class="border-1px name">铁岭市</span></li>
+                            <li data-name="台州市" class="item city-click"><span class="border-1px name">台州市</span></li>
+                            <li data-name="泰州市" class="item city-click"><span class="border-1px name">泰州市</span></li>
+                            <li data-name="泰安市" class="item city-click"><span class="border-1px name">泰安市</span></li>
+                            <li data-name="天水市" class="item city-click"><span class="border-1px name">天水市</span></li>
+                            <li data-name="铜陵市" class="item city-click"><span class="border-1px name">铜陵市</span></li>
+                            <li data-name="通辽市" class="item city-click"><span class="border-1px name">通辽市</span></li>
+                            <li data-name="通化市" class="item city-click"><span class="border-1px name">通化市</span></li>
+                            <li data-name="天门市" class="item city-click"><span class="border-1px name">天门市</span></li>
+                            <li data-name="屯昌县" class="item city-click"><span class="border-1px name">屯昌县</span></li>
+                            <li data-name="铜仁地区" class="item city-click"><span class="border-1px name">铜仁地区</span></li>
+                            <li data-name="铜川市" class="item city-click"><span class="border-1px name">铜川市</span></li>
+                            <li data-name="吐鲁番地区" class="item city-click"><span class="border-1px name">吐鲁番地区</span>
+                            </li>
+                            <li data-name="塔城地区" class="item city-click"><span class="border-1px name">塔城地区</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">W</div>
+                        <ul>
+                            <li data-name="武汉市" class="item city-click"><span class="border-1px name">武汉市</span></li>
+                            <li data-name="威海市" class="item city-click"><span class="border-1px name">威海市</span></li>
+                            <li data-name="无锡市" class="item city-click"><span class="border-1px name">无锡市</span></li>
+                            <li data-name="乌鲁木齐市" class="item city-click"><span class="border-1px name">乌鲁木齐市</span>
+                            </li>
+                            <li data-name="潍坊市" class="item city-click"><span class="border-1px name">潍坊市</span></li>
+                            <li data-name="温州市" class="item city-click"><span class="border-1px name">温州市</span></li>
+                            <li data-name="芜湖市" class="item city-click"><span class="border-1px name">芜湖市</span></li>
+                            <li data-name="乌海市" class="item city-click"><span class="border-1px name">乌海市</span></li>
+                            <li data-name="乌兰察布市" class="item city-click"><span class="border-1px name">乌兰察布市</span>
+                            </li>
+                            <li data-name="梧州市" class="item city-click"><span class="border-1px name">梧州市</span></li>
+                            <li data-name="五指山市" class="item city-click"><span class="border-1px name">五指山市</span></li>
+                            <li data-name="文昌市" class="item city-click"><span class="border-1px name">文昌市</span></li>
+                            <li data-name="万宁市" class="item city-click"><span class="border-1px name">万宁市</span></li>
+                            <li data-name="文山州" class="item city-click"><span class="border-1px name">文山州</span></li>
+                            <li data-name="渭南市" class="item city-click"><span class="border-1px name">渭南市</span></li>
+                            <li data-name="武威市" class="item city-click"><span class="border-1px name">武威市</span></li>
+                            <li data-name="吴忠市" class="item city-click"><span class="border-1px name">吴忠市</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">X</div>
+                        <ul>
+                            <li data-name="西安市" class="item city-click"><span class="border-1px name">西安市</span></li>
+                            <li data-name="西宁市" class="item city-click"><span class="border-1px name">西宁市</span></li>
+                            <li data-name="厦门市" class="item city-click"><span class="border-1px name">厦门市</span></li>
+                            <li data-name="徐州市" class="item city-click"><span class="border-1px name">徐州市</span></li>
+                            <li data-name="湘潭市" class="item city-click"><span class="border-1px name">湘潭市</span></li>
+                            <li data-name="邢台市" class="item city-click"><span class="border-1px name">邢台市</span></li>
+                            <li data-name="襄阳市" class="item city-click"><span class="border-1px name">襄阳市</span></li>
+                            <li data-name="新乡市" class="item city-click"><span class="border-1px name">新乡市</span></li>
+                            <li data-name="许昌市" class="item city-click"><span class="border-1px name">许昌市</span></li>
+                            <li data-name="咸阳市" class="item city-click"><span class="border-1px name">咸阳市</span></li>
+                            <li data-name="新余市" class="item city-click"><span class="border-1px name">新余市</span></li>
+                            <li data-name="宣城市" class="item city-click"><span class="border-1px name">宣城市</span></li>
+                            <li data-name="忻州市" class="item city-click"><span class="border-1px name">忻州市</span></li>
+                            <li data-name="锡林郭勒盟" class="item city-click"><span class="border-1px name">锡林郭勒盟</span>
+                            </li>
+                            <li data-name="兴安盟" class="item city-click"><span class="border-1px name">兴安盟</span></li>
+                            <li data-name="孝感市" class="item city-click"><span class="border-1px name">孝感市</span></li>
+                            <li data-name="咸宁市" class="item city-click"><span class="border-1px name">咸宁市</span></li>
+                            <li data-name="仙桃市" class="item city-click"><span class="border-1px name">仙桃市</span></li>
+                            <li data-name="湘西州" class="item city-click"><span class="border-1px name">湘西州</span></li>
+                            <li data-name="信阳市" class="item city-click"><span class="border-1px name">信阳市</span></li>
+                            <li data-name="西双版纳州" class="item city-click"><span class="border-1px name">西双版纳州</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">Y</div>
+                        <ul>
+                            <li data-name="烟台市" class="item city-click"><span class="border-1px name">烟台市</span></li>
+                            <li data-name="银川市" class="item city-click"><span class="border-1px name">银川市</span></li>
+                            <li data-name="宜昌市" class="item city-click"><span class="border-1px name">宜昌市</span></li>
+                            <li data-name="岳阳市" class="item city-click"><span class="border-1px name">岳阳市</span></li>
+                            <li data-name="营口市" class="item city-click"><span class="border-1px name">营口市</span></li>
+                            <li data-name="扬州市" class="item city-click"><span class="border-1px name">扬州市</span></li>
+                            <li data-name="盐城市" class="item city-click"><span class="border-1px name">盐城市</span></li>
+                            <li data-name="运城市" class="item city-click"><span class="border-1px name">运城市</span></li>
+                            <li data-name="宜宾市" class="item city-click"><span class="border-1px name">宜宾市</span></li>
+                            <li data-name="阳泉市" class="item city-click"><span class="border-1px name">阳泉市</span></li>
+                            <li data-name="延吉市" class="item city-click"><span class="border-1px name">延吉市</span></li>
+                            <li data-name="玉林市" class="item city-click"><span class="border-1px name">玉林市</span></li>
+                            <li data-name="延安市" class="item city-click"><span class="border-1px name">延安市</span></li>
+                            <li data-name="榆林市" class="item city-click"><span class="border-1px name">榆林市</span></li>
+                            <li data-name="伊春市" class="item city-click"><span class="border-1px name">伊春市</span></li>
+                            <li data-name="鹰潭市" class="item city-click"><span class="border-1px name">鹰潭市</span></li>
+                            <li data-name="宜春市" class="item city-click"><span class="border-1px name">宜春市</span></li>
+                            <li data-name="益阳市" class="item city-click"><span class="border-1px name">益阳市</span></li>
+                            <li data-name="永州市" class="item city-click"><span class="border-1px name">永州市</span></li>
+                            <li data-name="阳江市" class="item city-click"><span class="border-1px name">阳江市</span></li>
+                            <li data-name="云浮市" class="item city-click"><span class="border-1px name">云浮市</span></li>
+                            <li data-name="雅安市" class="item city-click"><span class="border-1px name">雅安市</span></li>
+                            <li data-name="玉溪市" class="item city-click"><span class="border-1px name">玉溪市</span></li>
+                            <li data-name="玉树州" class="item city-click"><span class="border-1px name">玉树州</span></li>
+                            <li data-name="伊犁州" class="item city-click"><span class="border-1px name">伊犁州</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="title">Z</div>
+                        <ul>
+                            <li data-name="郑州市" class="item city-click"><span class="border-1px name">郑州市</span></li>
+                            <li data-name="遵义市" class="item city-click"><span class="border-1px name">遵义市</span></li>
+                            <li data-name="株洲市" class="item city-click"><span class="border-1px name">株洲市</span></li>
+                            <li data-name="淄博市" class="item city-click"><span class="border-1px name">淄博市</span></li>
+                            <li data-name="张家口市" class="item city-click"><span class="border-1px name">张家口市</span></li>
+                            <li data-name="珠海市" class="item city-click"><span class="border-1px name">珠海市</span></li>
+                            <li data-name="镇江市" class="item city-click"><span class="border-1px name">镇江市</span></li>
+                            <li data-name="周口市" class="item city-click"><span class="border-1px name">周口市</span></li>
+                            <li data-name="中山市" class="item city-click"><span class="border-1px name">中山市</span></li>
+                            <li data-name="漳州市" class="item city-click"><span class="border-1px name">漳州市</span></li>
+                            <li data-name="舟山市" class="item city-click"><span class="border-1px name">舟山市</span></li>
+                            <li data-name="湛江市" class="item city-click"><span class="border-1px name">湛江市</span></li>
+                            <li data-name="肇庆市" class="item city-click"><span class="border-1px name">肇庆市</span></li>
+                            <li data-name="枣庄市" class="item city-click"><span class="border-1px name">枣庄市</span></li>
+                            <li data-name="张家界市" class="item city-click"><span class="border-1px name">张家界市</span></li>
+                            <li data-name="驻马店市" class="item city-click"><span class="border-1px name">驻马店市</span></li>
+                            <li data-name="自贡市" class="item city-click"><span class="border-1px name">自贡市</span></li>
+                            <li data-name="资阳市" class="item city-click"><span class="border-1px name">资阳市</span></li>
+                            <li data-name="昭通市" class="item city-click"><span class="border-1px name">昭通市</span></li>
+                            <li data-name="张掖市" class="item city-click"><span class="border-1px name">张掖市</span></li>
+                            <li data-name="中卫市" class="item city-click"><span class="border-1px name">中卫市</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="shortcut shortcut-hook">
+                <ul>
+                    <li data-anchor="★热门城市" class="item">★</li>
+                    <li data-anchor="A" class="item">A</li>
+                    <li data-anchor="B" class="item">B</li>
+                    <li data-anchor="C" class="item">C</li>
+                    <li data-anchor="D" class="item">D</li>
+                    <li data-anchor="E" class="item">E</li>
+                    <li data-anchor="F" class="item">F</li>
+                    <li data-anchor="G" class="item">G</li>
+                    <li data-anchor="H" class="item">H</li>
+                    <li data-anchor="J" class="item">J</li>
+                    <li data-anchor="K" class="item">K</li>
+                    <li data-anchor="L" class="item">L</li>
+                    <li data-anchor="M" class="item">M</li>
+                    <li data-anchor="N" class="item">N</li>
+                    <li data-anchor="P" class="item">P</li>
+                    <li data-anchor="Q" class="item">Q</li>
+                    <li data-anchor="R" class="item">R</li>
+                    <li data-anchor="S" class="item">S</li>
+                    <li data-anchor="T" class="item">T</li>
+                    <li data-anchor="W" class="item">W</li>
+                    <li data-anchor="X" class="item">X</li>
+                    <li data-anchor="Y" class="item">Y</li>
+                    <li data-anchor="Z" class="item">Z</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../js/mTween.js"></script>
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        {
+            let back = document.querySelector(".back");
+            back.onclick = function () {
+                window.location.href = 'register.html'
+            }
+            let box = document.querySelector(".city-wrapper-hook");
+            let list = document.querySelector(".scroller-hook");
+            let startPointY = 0;
+            let startOffset = 0;
+            css(list, "translateY", 0);
+            box.addEventListener("touchstart", (e) => {
+                let touch = e.changedTouches[0];
+                startPointY = touch.clientY;
+                startOffset = css(list, "translateY");
+                e.preventDefault();
+            });
+            box.addEventListener("touchmove", (e) => {
+                let touch = e.changedTouches[0];
+                let nowPointY = touch.clientY;
+                let disPointY = nowPointY - startPointY;
+                console.log(disPointY + startOffset);
+                if (disPointY + startOffset > 0) {
+                    css(list, "translateY", 0);
+                } else {
+                    css(list, "translateY", disPointY + startOffset);
+                }
+
+            });
+        }
+    </script>
+</body>
+
+</html>

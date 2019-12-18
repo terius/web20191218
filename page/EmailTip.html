@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>邮箱认证</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>验证邮箱</i><em></em>
+    </header>
+
+    <div class="emailbox">
+        <p>我们已向您的邮箱</p>
+        <p>1594034567@qq.com</p>
+        <p>发送一封邮件，请注意查收</p>
+    </div>
+    <div class="pubbtn">关闭</div>
+    <div class="emailpost">邮件没有收到？重新发送</div>
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".pubbtn").click(function () {
+            window.history.go(-1);
+        })
+    </script>
+</body>
+
+</html>

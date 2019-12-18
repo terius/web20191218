@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body class="graybody">
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>设置</i><em></em>
+    </header>
+    <div style="background-color: #fff;">
+        <div class="list" onclick="persondata()">
+            <label>个人资料</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="list" onclick="phone()">
+            <label>手机绑定</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="list">
+            <label>个人标签</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="list">
+            <label>个人名片</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="list" onclick="Identify()">
+            <label>身份验证</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="list" onclick="platform()">
+            <label>平台认证</label>
+            <img src="../img/listmore.png" class="listmore" />
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="out">登出账户</div>
+    <script>
+        function persondata() {
+            window.location.href = 'SetPersonalData.html'
+        }
+        function platform() {
+            window.location.href = 'SetPlatForm.html'
+        }
+        function phone() {
+            window.location.href = 'SetPhone.html'
+        }
+        function Identify() {
+            window.location.href = 'SetIdentify.html'
+        }
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".out").click(function () {
+            window.location.href = 'Defalult.html'
+        })
+    </script>
+</body>
+
+</html>

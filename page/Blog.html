@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>博客</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+
+  <body>
+    <div id="root" v-cloak class="blog">
+      <div class="bloghead">
+        <div class="personpic">
+          <img :src="info.pic" />
+        </div>
+        <div class="sxbox">
+          <span>私信</span>
+          <span class="attspan">关注</span>
+        </div>
+        <ul class="sxul">
+          <li>
+            <h1>300</h1>
+            <h2>发布量</h2>
+          </li>
+          <li>
+            <h1>100039</h1>
+            <h2>粉丝数</h2>
+          </li>
+          <li>
+            <h1>356</h1>
+            <h2>关注度</h2>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="typeboxsc">
+          <div class="typebox">
+            <ul class="type">
+              <li :class="{'sel':selItem==1}" v-on:click="selItem=1">
+                <span>发现</span>
+              </li>
+              <li :class="{'sel':selItem==2}" v-on:click="selItem=2">
+                <span>同城</span>
+              </li>
+              <li :class="{'sel':selItem==3}" v-on:click="selItem=3">
+                <span>旅游</span>
+              </li>
+              <li :class="{'sel':selItem==4}" v-on:click="selItem=4">
+                <span>美食</span>
+              </li>
+              <li :class="{'sel':selItem==5}" v-on:click="selItem=5">
+                <span>直播</span>
+              </li>
+              <li :class="{'sel':selItem==6}" v-on:click="selItem=6">
+                <span>短视频</span>
+              </li>
+            </ul>
+            <img src="../img/shai.png" class="shai" />
+          </div>
+        </div>
+        <div class="bloglist">
+          <div class="lbloglist" v-for="item in details">
+            <div class="lbloglistbox" @click="toDetail(item)">
+              <div class="blogpic">
+                <img :src="item.pic[0]" />
+              </div>
+              <h1>{{item.title}}</h1>
+              <a :href="'/page/blog.html?id=' + item.peopleInfo.id">
+                <div class="blogbox">
+                  <img :src="item.peopleInfo.pic" />
+                  <h1>{{item.peopleInfo.name}}</h1>
+                  <p>{{item.time}}</p>
+                </div></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <v-footer name="blog" :id="id"></v-footer>
+
+      <div class="coverbox indexcoverbox" style="display: none;top:0">
+        <div class="cover"></div>
+        <div class="covercont">
+          <div class="coverscroll">
+            <h1 class="covertit">按兴趣<span class="addtype">关闭</span></h1>
+            <ul class="coverul">
+              <li>
+                <div>星座</div>
+              </li>
+              <li>
+                <div>摄影</div>
+              </li>
+              <li>
+                <div>新鲜事</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按板块</h1>
+            <ul class="coverul">
+              <li>
+                <div>美食</div>
+              </li>
+              <li>
+                <div>旅游</div>
+              </li>
+              <li>
+                <div>美妆</div>
+              </li>
+              <li>
+                <div>运动</div>
+              </li>
+              <li>
+                <div>法律</div>
+              </li>
+              <li>
+                <div>数码</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按内容</h1>
+            <ul class="coverul">
+              <li>
+                <div>软文</div>
+              </li>
+              <li>
+                <div>直播</div>
+              </li>
+              <li>
+                <div>短视频</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按其他</h1>
+            <ul class="coverul">
+              <li>
+                <div>同城</div>
+              </li>
+              <li>
+                <div>附近</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../data/all.js"></script>
+    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/vue-template.js"></script>
+    <script src="../js/common.js?v=20191215"></script>
+    <script>
+      var initJQFun = function() {
+        window.onload = function() {
+          $(".coverbox").height(
+            window.screen.availHeight - $(".searchbox").height()
+          );
+          $(".type").width(
+            $(".type li")
+              .eq(0)
+              .width() * $(".type li").length
+          );
+        };
+        $(".addtype").click(function() {
+          $(".coverbox").hide();
+        });
+        $(".shai").click(function() {
+          $(".indexcoverbox").show();
+        });
+        $(".cover").click(function() {
+          $(".coverbox").hide();
+        });
+        $(".coverul li").click(function() {
+          $(this).addClass("lisel");
+        });
+        window.onload = function() {
+          $(".coverbox").height(
+            window.screen.availHeight - $(".searchbox").height()
+          );
+        };
+      };
+
+      var vue = new Vue({
+        el: "#root",
+        data: {
+          info: {},
+          id: com.getParam("id"),
+          selItem: 1,
+          details: []
+        },
+        created() {
+          this.info = people.find(d => d.id == this.id);
+          this.getData();
+        },
+        mounted() {
+          initJQFun();
+        },
+        methods: {
+          getData() {
+            this.details = [];
+            if (this.selItem == 1) {
+              let rad = [1, 3, 4, 5, 6];
+              rad.forEach(element => {
+                let item2 = detail.find(d => d.id == element);
+                item2.peopleInfo = people.find(d => d.id == item2.peopleId);
+                this.details.push(item2);
+              });
+            } else {
+              this.details = detail.filter(d => d.type == this.selItem);
+
+              this.details.forEach(element => {
+                element.peopleInfo = people.find(d => d.id == element.peopleId);
+              });
+            }
+          },
+          toDetail(info) {
+            if (info.type == types.dsp || info.type == types.zb) {
+              window.location.href = "/page/video.html?id=" + info.id;
+            } else {
+              window.location.href = "/page/blogDetail.html?id=" + info.id;
+            }
+          }
+        },
+        watch: {
+          selItem(newV, oldV) {
+            this.getData();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

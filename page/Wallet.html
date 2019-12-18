@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的钱包</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>我的钱包</i><em></em>
+    </header>
+    <div class="walletcont">
+        <div class="list" onclick="balance()">
+            <img src="../img/icon07.png" class="listpic">
+            <label>余额</label>
+            <img src="../img/listmore.png" class="listmore">
+        </div>
+        <div class="list" onclick="BankList()">
+            <img src="../img/icon08.png" class="listpic">
+            <label>银行卡</label>
+            <img src="../img/listmore.png" class="listmore">
+        </div>
+        <div class="line"></div>
+        <div class="list" onclick="Bill()">
+            <img src="../img/icon09.png" class="listpic">
+            <label>账单</label>
+            <img src="../img/listmore.png" class="listmore">
+        </div>
+        <div class="list" onclick="pay()">
+            <img src="../img/icon10.png" class="listpic">
+            <label>支付设置</label>
+            <img src="../img/listmore.png" class="listmore">
+        </div>
+    </div>
+    <script>
+        function balance() {
+            window.location.href = 'Balance.html'
+        }
+        function BankList() {
+            window.location.href = 'BankList.html'
+        }
+        function Bill() {
+            window.location.href = 'BIll.html'
+        }
+        function pay() {
+            window.location.href = 'PaySet.html'
+        }
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+    </script>
+</body>
+
+</html>

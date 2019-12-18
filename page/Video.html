@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频页面</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+
+    <!-- 新增 -->
+    <script src="../js/live.js"></script>
+</head>
+
+<body style="background-color: #000; overflow: hidden;" class="vido">
+    <div class="fanhui">
+        <img src="../img/backw.png" class="backw" /></div>
+    <div class="js-shareBtn"><img src="../img/pic41.png" /></div>
+    <video id="video1" width="100%" height="100%" muted="muted">
+        <!-- <source src="http://139.196.217.92:9208/Upload/20191211/video1.mp4" type="video/mp4">
+        您的浏览器不支持 HTML5 video 标签。 -->
+    </video>
+
+    <!-- <img src="../img/pic42.png" style="position: fixed;
+    bottom: 5rem;
+    width: 100%;
+    z-index: 1;
+    left: 0;" /> -->
+    <div class="videotips">
+        <h1><img src="../img/pic37.png" onclick="center()" />PayaHair韩系设计<span class="attenbtn">关注</span></h1>
+        <P>2020最火的烫发 蛋卷头 适合发量少的妹子2020最火的烫发 蛋卷头 适合发量少的妹子</P>
+        <div class="videomark">
+            <span><img src="../img/stop.png" />蛋卷烫</span>
+            <span>有效的减肥放大</span>
+        </div>
+        <div class="videocomment">
+            <input placeholder="留下点什么" class="leavemess" />
+            <ul class="article videots">
+                <li class="js-collectBtn">
+                    <div><img src="../img/pic39.png" /><img src="../img/pic39A.png" /></div>
+                    <h1>2万</h1>
+                </li>
+                <li class="js-xinBtn">
+                    <div><img src="../img/pic38.png" /><img src="../img/pic38A.png" /></div>
+                    <h1>3.4万</h1>
+                </li>
+                <li class="js-praiseBtn">
+                    <div><img src="../img/pic40.png" /><img src="../img/pic40.png" /></div>
+                    <h1>230</h1>
+                </li>
+            </ul>
+            <span class="send">发送</span>
+        </div>
+    </div>
+    <!-- <button class="paly stop"></button> -->
+    <!-- <button onclick="makeBig()">放大</button>
+    <button onclick="makeSmall()">缩小</button>
+    <button onclick="makeNormal()">普通</button> -->
+
+    <div class="sharecover" style="display: none;">
+        <div class="cover"></div>
+        <div class="sharecont">
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon21.png"></div>
+                    <h1>站内好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon22.png"></div>
+                    <h1>微信好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon23.png"></div>
+                    <h1>朋友圈</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon27.png"></div>
+                    <h1>Facebook</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon24.png"></div>
+                    <h1>生成分享图</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon25.png"></div>
+                    <h1>复制链接</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon26.png"></div>
+                    <h1>举报</h1>
+                </li>
+            </ul>
+            <div class="cancle">取消</div>
+        </div>
+    </div>
+    <div class="cocoverbox" style="display: none;">
+        <div class="cover"></div>
+        <footer class="commentfooter comdetail" >
+            <div class="blogbox commentbox">
+                <img src="../img/pic14.png">
+                <h1>天山 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>感谢上次雪下的真的很大,不过今年应该没机会尝试了,学习之明年来雪的时候再来尝试把</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+            <div class="blogbox commentbox">
+                <img src="../img/pic15.png">
+                <h1>是合格 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>正纳闷中国的车站哪有这么大的树,最后一张图看明白了</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+            <div class="blogbox commentbox">
+                <img src="../img/pic16.png">
+                <h1>李伟 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>国外的学,也下的这么认真888</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        $(function () {
+            var myVideo = document.getElementById("video1");
+            myVideo.src = "http://139.196.217.92:9208/Upload/20191211/video1.mp4";
+            myVideo.play();
+        });
+
+
+        $(".paly ").click(function () {
+            if ($(this).hasClass("stop")) {
+                $(this).removeClass("stop")
+                myVideo.play();
+            } else {
+                $(this).addClass("stop")
+                myVideo.pause();
+            }
+        })
+        function playPause() {
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+
+        function makeBig() {
+            myVideo.width = document.body.clientWidth;
+        }
+        $(".fanhui").click(function () {
+            window.history.go(-1);
+        })
+        function center() {
+            window.location.href = 'Blog.html'
+        }
+        $(".js-praiseBtn").click(function () {
+            $(".cocoverbox").show();
+        })
+        $(".cover").click(function () {
+            $(".cocoverbox").hide();
+        })
+    </script>
+    <script>
+            (function ($) {
+                $.extend({
+                    tipsBox: function (options) {
+                        options = $.extend({
+                            obj: null,  //jq对象，要在那个html标签上显示
+                            str: "<img src='../img/pic39A.png'/>",  //字符串，要显示的内容;也可以传一段html，如: "<b style='font-family:Microsoft YaHei;'>+1</b>"
+                            startSize: "12px",  //动画开始的文字大小
+                            endSize: "30px",    //动画结束的文字大小
+                            interval: 600,  //动画时间间隔
+                            color: "red",    //文字颜色
+                            callback: function () {
+                            }    //回调函数
+                        }, options);
+                        $("body").append("<span class='num'>" + options.str + "</span>");
+                        var box = $(".num");
+                        var left = options.obj.offset().left + options.obj.width() / 2;
+                        var top = options.obj.offset().top - options.obj.height() + 15;
+                        box.css({
+                            "position": "absolute",
+                            "left": left + "px",
+                            "top": top + "px",
+                            // "width":'0.9rem',
+                            "z-index": 9999,
+                            "font-size": options.startSize,
+                            // "line-height": options.endSize,
+                            "color": options.color
+                        });
+                        box.animate({
+                            "font-size": options.endSize,
+                            "opacity": "0",
+                            // "width":'0.9rem',
+                            "top": top - parseInt(options.endSize) + "px"
+                        }, options.interval, function () {
+                            box.remove();
+                            options.callback();
+                        });
+                    }
+                });
+            })(jQuery);
+        $(".leavemess").focus(function () {
+            $(".videocomment").addClass("videocommentfull");
+        })
+        $(".leavemess").blur(function () {
+            $(".videocomment").removeClass("videocommentfull");
+        })
+        $(".send").click(function () {
+            $(".videocomment").removeClass("videocommentfull");
+        })
+        $(function () {
+            $(".js-collectBtn").click(function () {
+                $.tipsBox({
+                    obj: $(this),
+                    str: "<img src='../img/pic39A.png' style='height:1rem'/>",
+                    callback: function () {
+                    }
+                });
+            });
+        });</script>
+
+
+</body>
+
+</html>

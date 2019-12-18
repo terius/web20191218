@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>博客正文</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <!-- <link rel="stylesheet" href="../js/swiper/swiper.min.css" /> -->
+    <link rel="stylesheet" href="../js/jquery-weui/css/jquery-weui.min.css" />
+    <link
+      rel="stylesheet"
+      href="/css/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Core CSS file -->
+    <link rel="stylesheet" href="/js/photoswipe/photoswipe.css" />
+
+    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+     In the folder of skin CSS file there are also:
+     - .png and .svg icons sprite, 
+     - preloader.gif (for browsers that do not support CSS animations) -->
+    <link
+      rel="stylesheet"
+      href="/js/photoswipe/default-skin/default-skin.css"
+    />
+  </head>
+
+  <body>
+    <div id="root" v-cloak class="detail">
+      <header>
+        <span class="back" @click="toMainPage"
+          ><img src="../img/back.png"
+        /></span>
+        <i>博客正文</i
+        ><em class="submit"
+          ><img
+            src="../img/dian_g.png"
+            class="toreport"
+            @click="showShareCover =!showShareCover"
+        /></em>
+      </header>
+      <div class="combox comboxts" style="padding-bottom: 4rem;">
+        <div class="commentcont">
+          <div class="blogbox commentbox blogboxts">
+            <img :src="info.peopleInfo.pic" onclick="Blog()" />
+            <h1>{{info.title}}</h1>
+            <div class="comnum">
+              <span>{{info.addTime}}&nbsp;{{info.peopleInfo.title}}</span>
+            </div>
+            <span class="focus" :class="{hasfocus:focus}" @click="focus=!focus"
+              >{{focus?'已关注':'关注'}}</span
+            >
+          </div>
+          <div class="commenttxt">
+            <p>{{info.title}}</p>
+            <div class="detail-pic">
+              <div
+                class="detail-pic__item"
+                v-for="(picurl,index) in info.pic"
+                v-bind:class="picWidth"
+              >
+                <img :src="picurl" @click="goToSwiper(index)" />
+              </div>
+            </div>
+            <!-- <ul class="blogpinlist">
+              <li>
+                <div>
+                  <img src="../img/pic18.png" />
+                </div>
+              </li>
+             
+            </ul> -->
+            <div class="detail-text" v-html="info.text"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="nav choosebtn">
+        <span class="zan">
+          <img src="../img/screenb_pre.png" class="yzan"/><label>赞同</label
+          >&nbsp;2k <img src="../img/screenb.png" class="fzan"
+        /></span>
+        <span class="shou">
+          <div><img src="../img/reply.png" /></div>
+          评论234
+        </span>
+        <span class="com">
+          <div><img src="../img/collect.png" /></div>
+          收藏15
+        </span>
+      </footer>
+
+      <!-- 评论列表 -->
+      <div class="cocoverbox" style="display: none;">
+        <div class="cover"></div>
+        <footer class="commentfooter comdetail">
+          <div class="blogbox commentbox">
+            <img src="../img/pic14.png" />
+            <h1>天山 <img src="../img/dian_g.png" class="toreport" /></h1>
+            <p>
+              感谢上次雪下的真的很大,不过今年应该没机会尝试了,学习之明年来雪的时候再来尝试把
+            </p>
+            <div class="comnum">
+              <span>10/04</span>
+              <span class="collectnum">
+                2345<img src="../img/like.png" />
+                <img src="../img/reply.png" class="reply" />
+              </span>
+            </div>
+          </div>
+          <div class="blogbox commentbox">
+            <img src="../img/pic15.png" />
+            <h1>是合格 <img src="../img/dian_g.png" class="toreport" /></h1>
+            <p>正纳闷中国的车站哪有这么大的树,最后一张图看明白了</p>
+            <div class="comnum">
+              <span>10/04</span>
+              <span class="collectnum">
+                2345<img src="../img/like.png" />
+                <img src="../img/reply.png" class="reply" />
+              </span>
+            </div>
+          </div>
+          <div class="blogbox commentbox">
+            <img src="../img/pic16.png" />
+            <h1>李伟 <img src="../img/dian_g.png" class="toreport" /></h1>
+            <p>国外的学,也下的这么认真888</p>
+            <div class="comnum">
+              <span>10/04</span>
+              <span class="collectnum">
+                2345<img src="../img/like.png" />
+                <img src="../img/reply.png" class="reply" />
+              </span>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      <!-- 右上角分享 -->
+      <div class="sharecover" v-show="showShareCover">
+        <div class="cover"></div>
+        <div class="sharecont">
+          <ul>
+            <li>
+              <div>
+                <img src="../img/icon21.png" />
+              </div>
+
+              <h1>站内好友</h1>
+            </li>
+            <li>
+              <div>
+                <img src="../img/icon22.png" />
+              </div>
+
+              <h1>微信好友</h1>
+            </li>
+            <li>
+              <div>
+                <img src="../img/icon23.png" />
+              </div>
+
+              <h1>朋友圈</h1>
+            </li>
+            <li>
+              <div>
+                <img src="../img/icon27.png" />
+              </div>
+
+              <h1>Facebook</h1>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <img src="../img/icon24.png" />
+              </div>
+
+              <h1>生成分享图</h1>
+            </li>
+            <li>
+              <div>
+                <img src="../img/icon25.png" />
+              </div>
+
+              <h1>复制链接</h1>
+            </li>
+            <li>
+              <div>
+                <img src="../img/icon26.png" />
+              </div>
+
+              <h1>举报</h1>
+            </li>
+          </ul>
+          <div class="cancle" @click="showShareCover=false">取消</div>
+        </div>
+      </div>
+
+      <!-- 图片点击放大 -->
+      <div class="picbox"></div>
+      <!-- Root element of PhotoSwipe. Must have class pswp. -->
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+          <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+
+          <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+              <!--  Controls are self-explanatory. Order can be changed. -->
+
+              <div class="pswp__counter"></div>
+
+              <button
+                class="pswp__button pswp__button--close"
+                title="Close (Esc)"
+              ></button>
+
+              <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+              <!-- element will get class pswp__preloader--active when preloader is running -->
+              <div class="pswp__preloader">
+                <div class="pswp__preloader__icn">
+                  <div class="pswp__preloader__cut">
+                    <div class="pswp__preloader__donut"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
+            >
+              <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../data/all.js"></script>
+    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script
+      type="text/javascript"
+      src="/js/swiper/swiper.animate1.0.3.min.js"
+    ></script> -->
+    <!-- <script src="../js/jquery-weui/js/jquery-weui.min.js"></script>
+    <script src="../js/jquery-weui/js/swiper.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/js/swiper/swiper.min.js"></script> -->
+
+    <!-- Core JS file -->
+    <script src="/js/photoswipe/photoswipe.js"></script>
+
+    <!-- UI JS file -->
+    <script src="/js/photoswipe/photoswipe-ui-default.js"></script>
+
+    <script src="../js/common.js?v=20191215"></script>
+    <script>
+      //   $(".back").click(function() {
+      //     window.history.go(-1);
+      //   });
+
+      var initJQFun = function() {
+        $(".reply").click(function() {
+          $(".cocoverbox").show();
+        });
+        $(".shou").click(function() {
+          $(".cocoverbox").show();
+        });
+        $(".cover").click(function() {
+          $(".cocoverbox").hide();
+          $(".sharecover").hide();
+        });
+        $(".toreport").click(function() {
+          $(".sharecover").show();
+        });
+        $(".cancle").click(function() {
+          $(".sharecover").hide();
+        });
+        window.onload = function() {
+          $(".blogpinlist div img").height($(".commentcont").width() * 0.33);
+        };
+        function Blog() {
+          window.location.href = "Blog.html";
+        }
+
+        $(".zan label").click(function() {
+          $(".zan").removeClass("haszan");
+          $(".zan")
+            .find("label")
+            .text("赞同");
+          $(".zan")
+            .find("img")
+            .eq(0)
+            .attr("src", "../img/screenb_pre.png");
+          $(".zan")
+            .find("img")
+            .eq(1)
+            .show();
+        });
+        $(".yzan").click(function() {
+          $(".zan").addClass("haszan");
+          $(".zan")
+            .find("label")
+            .text("已赞同");
+          $(".zan")
+            .find("img")
+            .eq(0)
+            .attr("src", "../img/wscreenb_pre.png");
+          $(".zan")
+            .find("img")
+            .eq(1)
+            .hide();
+        });
+        $(".fzan").click(function() {
+          $(".zan").addClass("haszan");
+          $(".zan")
+            .find("label")
+            .text("已反对");
+          $(".zan")
+            .find("img")
+            .eq(0)
+            .attr("src", "../img/wscreenb_pre.png");
+          $(".zan")
+            .find("img")
+            .eq(1)
+            .hide();
+        });
+      };
+
+      var vue = new Vue({
+        el: "#root",
+        data: {
+          showShareCover: false,
+          info: {},
+          id: com.getParam("id"),
+          focus: false,
+          showSwiper: false,
+          mySwiper: null
+        },
+        created() {
+          this.info = detail.find(d => d.id == this.id);
+          this.info.peopleInfo = people.find(d => d.id == this.info.peopleId);
+          console.log(this.info);
+        },
+        mounted() {
+          //   this.mySwiper = $.photoBrowser({
+          //     items: this.info.pic
+          //   });
+          initJQFun();
+          //  this.initPhotoSwipe();
+        },
+        methods: {
+          toMainPage() {
+            location.href = "/page/index.html";
+          },
+          initPhotoSwipe(index) {
+            var pswpElement = document.querySelectorAll(".pswp")[0];
+            var items = [];
+            // build items array
+            this.info.pic.forEach(e => {
+              items.push({ src: e, w: 400, h: 300 });
+            });
+            // define options (if needed)
+            if (!index) {
+                 index = 0;
+            }
+            var options = {
+              // optionName: 'option value'
+              // for example:
+              maxSpreadZoom: 10,
+              tapToToggleControls: false,
+              tapToClose: true,
+              index: index // start at first slide
+            };
+            //   PhotoSwipeUI_Default.tapToToggleControls = false;
+            this.mySwiper = new PhotoSwipe(
+              pswpElement,
+              PhotoSwipeUI_Default,
+              items,
+              options
+            );
+            this.mySwiper.init();
+          },
+          goToSwiper(index) {
+            //  alert(index);
+            this.initPhotoSwipe(index);
+            if (this.mySwiper) {
+              // this.showSwiper = true;
+              //  this.mySwiper.slideTo(index);
+              //  this.mySwiper.init();
+              //  this.mySwiper.goTo(index);
+            }
+          }
+        },
+        watch: {},
+        computed: {
+          picWidth: function() {
+            let picCount = this.info.pic.length;
+
+            let width = "width32";
+            if (picCount == 1) {
+              width = "width100";
+            } else if (picCount == 2 || picCount == 4) {
+              width = "width49";
+            }
+            //   alert(width);
+            return width;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

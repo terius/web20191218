@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>首页</title>
+    <link rel="stylesheet" href="../js/jquery-weui/css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+
+  <body>
+    <div id="root" v-cloak class="main">
+      <div class="content">
+        <div class="weui-pull-to-refresh__layer">
+          <div class="weui-pull-to-refresh__arrow"></div>
+          <div class="weui-pull-to-refresh__preloader"></div>
+          <div class="refresh">正在刷新</div>
+        </div>
+        <div class="searchbox">
+          <img src="../img/search.png" />
+          <input
+            type="search"
+            placeholder="请输入搜索关键词"
+            v-model="searchKey"
+            @keyup.enter="search"
+          />
+          <label><img src="../img/sdel.png"/></label>
+          <span @click="search">搜索</span>
+        </div>
+        <div class="typeboxsc">
+          <div class="typebox">
+            <ul class="type">
+              <li :class="{'sel':selItem==1}" v-on:click="selItem=1">
+                <span>发现</span>
+              </li>
+              <li :class="{'sel':selItem==2}" v-on:click="selItem=2">
+                <span>同城</span>
+              </li>
+              <li :class="{'sel':selItem==3}" v-on:click="selItem=3">
+                <span>旅游</span>
+              </li>
+              <li :class="{'sel':selItem==4}" v-on:click="selItem=4">
+                <span>美食</span>
+              </li>
+              <li :class="{'sel':selItem==5}" v-on:click="selItem=5">
+                <span>直播</span>
+              </li>
+              <li :class="{'sel':selItem==6}" v-on:click="selItem=6">
+                <span>短视频</span>
+              </li>
+            </ul>
+            <img src="../img/shai.png" class="shai" />
+          </div>
+        </div>
+        <dl class="focuspic">
+          <dt v-for="item in lives">
+            <a :href="item.url">
+              <div>
+                <img :src="item.peopleInfo.pic" />
+              </div>
+              <h1>{{item.title}}</h1>
+            </a>
+          </dt>
+        </dl>
+        <div class="bloglist">
+          <div
+            v-for="item in details"
+            @click="toDetail(item)"
+            class="bloglist__item"
+          >
+            <div class="blogpic">
+              <img :src="item.pic[0]" />
+            </div>
+            <span class="item__title">{{item.title}}</span>
+            <a :href="'/page/blog.html?id=' + item.peopleInfo.id">
+              <div class="blogbox">
+                <img :src="item.peopleInfo.pic" />
+                <h1>{{item.peopleInfo.name}}</h1>
+                <p>{{item.time}}</p>
+              </div>
+            </a>
+          </div>
+          <!-- <div class="lbloglist" v-for="item in details">
+            <div class="lbloglistbox" @click="toDetail(item)">
+             
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <v-footer name="index"></v-footer>
+      <div class="coverbox indexcoverbox" style="display: none;">
+        <div class="cover"></div>
+        <div class="covercont">
+          <div class="coverscroll">
+            <h1 class="covertit">
+              按兴趣<span class="addtype"
+                >编辑<img src="../img/del_g.png"
+              /></span>
+            </h1>
+            <ul class="coverul">
+              <li>
+                <div>星座</div>
+              </li>
+              <li>
+                <div>摄影</div>
+              </li>
+              <li>
+                <div>新鲜事</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按板块</h1>
+            <ul class="coverul">
+              <li>
+                <div>美食</div>
+              </li>
+              <li>
+                <div>旅游</div>
+              </li>
+              <li>
+                <div>美妆</div>
+              </li>
+              <li>
+                <div>运动</div>
+              </li>
+              <li>
+                <div>法律</div>
+              </li>
+              <li>
+                <div>数码</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按内容</h1>
+            <ul class="coverul">
+              <li>
+                <div>直播</div>
+              </li>
+              <li>
+                <div>短视频</div>
+              </li>
+            </ul>
+            <h1 class="covertit">按其他</h1>
+            <ul class="coverul">
+              <li>
+                <div>同城</div>
+              </li>
+              <li>
+                <div>附近</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../data/all.js"></script>
+    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/vue-template.js"></script>
+    <script src="../js/jquery-weui/js/jquery-weui.min.js"></script>
+    <script src="../js/common.js?v=20191215"></script>
+    <script>
+      function persondata() {
+        window.location.href = "SetPersonalData.html";
+      }
+
+      function index() {
+        window.location.href = "Index.html";
+      }
+
+      function blog() {
+        window.location.href = "Login.html";
+      }
+
+      function messcenter() {
+        window.location.href = "MessageCenter.html";
+      }
+
+      function personcenter() {
+        window.location.href = "PersonCenter.html";
+      }
+
+      function pubart() {
+        window.location.href = "BlogType.html";
+      }
+
+      var initJQFun = function() {
+        $(".shai").click(function() {
+          $(".indexcoverbox").show();
+        });
+        $(".cover").click(function() {
+          $(".coverbox").hide();
+        });
+        $(".addtype").click(function() {
+          $(".coverbox").hide();
+        });
+        $(".searchbox label").click(function() {
+          $(".searchbox input").val("");
+        });
+        window.onload = function() {
+          $(".coverbox").height(
+            window.screen.availHeight - $(".searchbox").height()
+          );
+          $(".type").width(
+            $(".type li")
+              .eq(0)
+              .width() * $(".type li").length
+          );
+        };
+        // $(".lbloglistbox").click(function() {
+        //   if ($(this).hasClass("lbloglistboxvi")) {
+        //     window.location.href = "Video.html";
+        //   } else {
+        //     window.location.href = "BlogDetail.html";
+        //   }
+        // });
+      };
+
+      var vue = new Vue({
+        el: "#root",
+        data: {
+          lives: [],
+          details: [],
+          selItem: 1,
+          methodName: "find",
+          isRefresh: false,
+          live: com.clone(live),
+          detail: com.clone(detail),
+          searchKey: ""
+        },
+        created() {
+          this.getData();
+        },
+        mounted() {
+          let vm = this;
+          $(".content").pullToRefresh(function() {
+            com.showLog("开始刷新");
+            setTimeout(() => {
+              vm.isRefresh = true;
+              vm.getData();
+              $(".content").pullToRefreshDone();
+            }, 1000);
+          });
+
+          initJQFun();
+          //  com.initPullRefresh();
+        },
+        methods: {
+          getData() {
+            this.lives = [];
+            this.details = [];
+            if (this.selItem == 1) {
+              let rad = [1, 3, 4, 5, 6];
+              rad.forEach(element => {
+                let item = this.live.find(d => d.id == element);
+                item.peopleInfo = people.find(d => d.id == item.peopleId);
+                this.lives.push(item);
+
+                let item2 = this.detail.find(d => d.id == element);
+                item2.peopleInfo = people.find(d => d.id == item.peopleId);
+                if (this.isRefresh) {
+                  this.details.push(item2);
+                } else if (!item2.isRefresh) {
+                  this.details.push(item2);
+                }
+              });
+            } else {
+              let rad = [];
+              switch (this.selItem) {
+                case 2:
+                  rad = [1, 2, 4, 5, 6];
+                  break;
+                case 3:
+                  rad = [2, 3, 8, 5, 6];
+                  break;
+                case 4:
+                  rad = [3, 6, 2, 5, 7];
+                  break;
+                case 5:
+                  rad = [1, 8, 7, 5, 6];
+                  break;
+                case 6:
+                  rad = [5, 7, 4, 3, 6];
+                  break;
+              }
+              rad.forEach(element => {
+                let item = this.live.find(d => d.id == element);
+                item.peopleInfo = people.find(d => d.id == item.peopleId);
+                this.lives.push(item);
+              });
+
+              if (this.isRefresh) {
+                this.details = this.detail.filter(d => d.type == this.selItem);
+              } else {
+                this.details = this.detail.filter(
+                  d => d.type == this.selItem && d.isRefresh == false
+                );
+              }
+
+              this.details.forEach(element => {
+                element.peopleInfo = people.find(d => d.id == element.peopleId);
+              });
+            }
+            // com.getData(jsonName, this.methodName).then(data => {
+
+            //     this.lives = data.live;
+            //     if (!this.isRefresh) {
+            //         this.details = data.detail.filter(d => d.isRefresh == false)
+            //     } else {
+            //         this.details = data.detail;
+            //     }
+            // })
+            if (this.searchKey) {
+              this.lives = this.lives.filter(
+                d => d.title.indexOf(this.searchKey) >= 0
+              );
+              this.details = this.details.filter(
+                d => d.title.indexOf(this.searchKey) >= 0
+              );
+            }
+          },
+          toDetail(info) {
+            if (info.type == types.dsp || info.type == types.zb) {
+              window.location.href = "/page/video.html?id=" + info.id;
+            } else {
+              window.location.href = "/page/blogDetail.html?id=" + info.id;
+            }
+          },
+          onend() {
+            // alert('end')
+          },
+          search() {
+            this.getData();
+          }
+        },
+        watch: {
+          selItem(newV, oldV) {
+            this.getData();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

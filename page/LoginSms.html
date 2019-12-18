@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i></i><em></em>
+    </header>
+    <nav class="pagenav">短信验证码登录</nav>
+    <div>
+        <div class="registerbox">
+            <div class=pubtitlist>
+                <label>+86</label>
+                <div class="pubtitcont pubtitcontts">
+                    <input placeholder="请输入手机号码" /></div>
+            </div>
+            <div class="pubnotitlist">
+                <input placeholder="验证码" name="verCode">
+                <span class="code">获取验证码</span>
+            </div>
+            <div class="sms" onclick="sms()">通过密码登录</div>
+
+            <div class="pubbtn nopubbtn" onclick="login()">登录</div>
+
+            <div class="operate">
+                <span onclick="register()">立即注册</span>
+                <span class="forget" onclick="forgetpass()">忘记密码</span>
+            </div>
+        </div>
+    </div>
+    <div class="tiptxt">点击按钮即表示阅读并同意<label>服务条款</label><label>隐私政策</label></div>
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".eyes").click(function () {
+            $(this).toggleClass("eyessel");
+        })
+        $(".choose li").click(function () {
+            $(this).addClass("sel").siblings().removeClass("sel");
+            $(".registerbox").eq($(this).index()).show().siblings().hide();
+        })
+        function login() {
+            window.location.href = 'Blog.html';
+        }
+        function sms(){
+            window.location.href = 'Login.html';
+        }
+        // function closepage() {
+        //     window.location.href = 'Defalult.html';
+        // }
+        function register() {
+            window.location.href = 'register.html';
+        }
+        function forgetpass() {
+            window.location.href = 'ResetPass.html';
+        }
+    </script>
+</body>
+
+</html>

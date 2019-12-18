@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消息中心</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span></span>
+        <i>消息中心</i><em>
+            <img src="../img/icon04.png" class="address" />
+        </em>
+    </header>
+    <div class="container">
+        <div class="outlist outlistts messlist">
+            <table>
+                <tr class="sel" onclick="messpush()">
+                    <th><img src="../img/pic4.png" /></th>
+                    <td>
+                        <h1>推送消息<span>22:19</span></h1>
+                        <p>应该是我今天烫过的最自然的卷发了<i class="circle"></i></p>
+                    </td>
+                </tr>
+                <tr onclick="chatpush()">
+                    <th><img src="../img/pic5.png" /></th>
+                    <td>
+                        <h1>范托迪<span>22:15</span></h1>
+                        <p>应该是我今天烫过的最自然的卷发了</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="../img/pic6.png" /></th>
+                    <td>
+                        <h1>临时好友<span>22:00</span></h1>
+                        <p>应该是我今天烫过的最自然的卷发了</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="../img/pic7.png" /></th>
+                    <td>
+                        <h1>小个子群聊<span>21:00</span></h1>
+                        <p>12月4日 10：40</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><img src="../img/pic8.png" /></th>
+                    <td>
+                        <h1>好友申请<span>一天前</span></h1>
+                        <p>HEllo.,我对你的穿搭很感兴趣，加个好友吧</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer class="nav">
+        <ul>
+            <li>
+                <div onclick="index()">
+                    <img src="../img/icon01.png" />
+                    <h1>首页</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="blog()">
+                    <img src="../img/icon02.png" />
+                    <h1>博客</h1>
+                </div>
+            </li>
+            <li class="publish">
+                <div onclick="pubart()">
+                    <img src="../img/icon03.png" />
+                </div>
+            </li>
+            <li>
+                <div onclick="messcenter()">
+                    <img src="../img/icon04_pre.png" />
+                    <h1>消息</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="personcenter()">
+                    <img src="../img/icon05.png" />
+                    <h1>我的</h1>
+                </div>
+            </li>
+        </ul>
+    </footer>
+    <script>
+        $(".portrait").click(function () {
+            window.location.href = 'ChoosePortrait.html'
+        })
+        $(".address").click(function () {
+            window.location.href = 'Address.html'
+        })
+        function index() {
+            window.location.href = 'Index.html'
+        }
+        function blog() {
+            window.location.href = 'Login.html'
+        }
+        function messcenter() {
+            window.location.href = 'MessageCenter.html'
+        }
+        function personcenter() {
+            window.location.href = 'PersonCenter.html'
+        }
+        function messpush() {
+            window.location.href = 'MessagePush.html'
+        }
+        function chatpush() {
+            window.location.href = 'MessChat.html'
+        }
+        function pubart() {
+            window.location.href = 'BlogType.html'
+        }
+    </script>
+</body>
+
+</html>

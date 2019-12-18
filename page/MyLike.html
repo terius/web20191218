@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的点赞</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>我的点赞</i><em class="submit">编辑</em>
+    </header>
+    <div class="typebox typeboxts mytypeboxts">
+        <ul class="type mytype">
+            <li><span>关注</span></li>
+            <li><span>收藏</span></li>
+            <li><span>评论</span></li>
+            <li class="sel"><span>点赞</span></li>
+            <li><span>举报</span></li>
+        </ul>
+    </div>
+    <div class="bloglist">
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic10.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic14.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like.png" />2345
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic11.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic15.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like_pre.png" />300
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic12.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic16.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like_pre.png" />1780
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic13.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic17.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like.png" />345
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic27.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic27.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like.png" />345
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="lbloglist">
+            <div class="lbloglistbox">
+                <div class="blogpic">
+                    <img src="../img/pic28.png" />
+                </div>
+                <h1>1.非常酷 又梦幻的昨天</h1>
+                <div class="blogbox">
+                    <img src="../img/pic28.png" />
+                    <h1>周雨彤微博</h1>
+                    <p>3小时前</p>
+                    <span class="collectnum">
+                        <img src="../img/like.png" />345
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".mytype li").click(function () {
+            var num = $(this).index();
+            switch (num) {
+                case 0:
+                    window.location.href = 'MyAttendence.html';
+                    break;
+                case 1:
+                    window.location.href = 'MyCollect.html';
+                    break;
+                case 2:
+                    window.location.href = 'MyComment.html';
+                    break;
+                case 3:
+                    window.location.href = 'MyLike.html';
+                    break;
+                case 4:
+                    window.location.href = 'MyReport.html';
+                    break;
+            }
+        })
+    </script>
+</body>
+
+</html>

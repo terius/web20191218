@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png" /></span>
+        <i>范托迪</i><em><img src="../img/dian_b.png" /></em>
+    </header>
+    <div class="container">
+        <div class="chattime">11-21&nbsp;22:25</div>
+        <div class="lperson">
+            <img src="../img/pic5.png" class="lpersonpic" />
+            <div>我们已经互相关注了，开始俩天吧</div>
+        </div>
+        <div class="rperson">
+            <img src="../img/pic4.png" class="rpersonpic" />
+            <div>我们已经互相关注了，开始俩天吧</div>
+        </div>
+    </div>
+    <footer class="chatfooter">
+        <div class="messbox">
+            <img src="../img/icon38.png" class="voice">
+            <textarea id="textarea" placeholder="...发消息"></textarea>
+            <img src="../img/icon17.png" class="smile">
+            <img src="../img/icon18.png" class="messmore">
+        </div>
+        <div class="messmorecont" style="display: none;">
+            <div class="album chatalbum">
+                <div><img src="../img/icon39.png"/></div>
+                <h1>照片</h1>
+            </div>
+            <div class="photo"></div>
+        </div>
+    </footer>
+</body>
+<script>
+    $(".back").click(function () {
+        window.history.go(-1);
+    })
+    $(".messmore").click(function () {
+        $(".messmorecont").show()
+    })
+</script>
+<script>
+    var autoTextarea = function (elem, extra, maxHeight) {
+
+        extra = extra || 0;
+
+        var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
+
+            isOpera = !!window.opera && !!window.opera.toString().indexOf('Opera'),
+
+            addEvent = function (type, callback) {
+
+                elem.addEventListener ?
+
+                    elem.addEventListener(type, callback, false) :
+
+                    elem.attachEvent('on' + type, callback);
+
+            },
+
+            getStyle = elem.currentStyle ? function (name) {
+
+                var val = elem.currentStyle[name];
+
+                if (name === 'height' && val.search(/px/i) !== 1) {
+
+                    var rect = elem.getBoundingClientRect();
+
+                    return rect.bottom - rect.top -
+
+                        parseFloat(getStyle('paddingTop')) -
+
+                        parseFloat(getStyle('paddingBottom')) + 'px';
+
+                };
+
+                return val;
+
+            } : function (name) {
+
+                return getComputedStyle(elem, null)[name];
+
+            },
+
+            minHeight = parseFloat(getStyle('height'));
+
+        elem.style.resize = 'none';
+
+        var change = function () {
+
+            var scrollTop, height,
+
+                padding = 0,
+
+                style = elem.style;
+
+            if (elem._length === elem.value.length) return;
+
+            elem._length = elem.value.length;
+
+            if (!isFirefox && !isOpera) {
+
+                padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
+
+            };
+
+            scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            elem.style.height = minHeight + 'px';
+
+            if (elem.scrollHeight > minHeight) {
+
+                if (maxHeight && elem.scrollHeight > maxHeight) {
+
+                    height = maxHeight - padding;
+
+                    style.overflowY = 'auto';
+
+                } else {
+
+                    height = elem.scrollHeight - padding;
+
+                    style.overflowY = 'hidden';
+
+                };
+
+                style.height = height + extra + 'px';
+
+                scrollTop += parseInt(style.height) - elem.currHeight;
+
+                document.body.scrollTop = scrollTop;
+
+                document.documentElement.scrollTop = scrollTop;
+
+                elem.currHeight = parseInt(style.height);
+
+            };
+
+        };
+
+        addEvent('propertychange', change);
+
+        addEvent('input', change);
+
+        addEvent('focus', change);
+
+        change();
+
+    };
+    var text = document.getElementById("textarea");
+
+    autoTextarea(text);// 调用
+</script>
+
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>话题标签</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png" /></span>
+        <i>话题标签</i><em></em>
+    </header>
+    <div class="indexcoverbox">
+        <h1 class="covertit">按兴趣</h1>
+        <ul class="coverul">
+            <li>
+                <div>星座</div>
+            </li>
+            <li>
+                <div>摄影</div>
+            </li>
+            <li>
+                <div>新鲜事</div>
+            </li>
+        </ul>
+        <h1 class="covertit">按板块</h1>
+        <ul class="coverul">
+            <li>
+                <div>美食</div>
+            </li>
+            <li>
+                <div>旅游</div>
+            </li>
+            <li>
+                <div>美妆</div>
+            </li>
+            <li>
+                <div>运动</div>
+            </li>
+            <li>
+                <div>法律</div>
+            </li>
+            <li>
+                <div>数码</div>
+            </li>
+        </ul>
+        <h1 class="covertit">按内容</h1>
+        <ul class="coverul">
+            <li>
+                <div>直播</div>
+            </li>
+            <li>
+                <div>短视频</div>
+            </li>
+        </ul>
+        <h1 class="covertit">按其他</h1>
+        <ul class="coverul">
+            <li>
+                <div>同城</div>
+            </li>
+            <li>
+                <div>附近</div>
+            </li>
+        </ul>
+    </div>
+    <label class="showloca">保存</label>
+    <script>
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".coverul li").click(function () {
+            $(this).addClass("lisel");
+        })
+    </script>
+</body>
+
+</html>

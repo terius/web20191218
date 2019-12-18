@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频页面</title>
+    <link rel="stylesheet" href="../css/animate.min.css" />
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+
+    <!-- 新增 -->
+    <script src="../js/live.js"></script>
+</head>
+
+<body style="background-color: #000;">
+    <div class="noheadback fanhui">
+        <!-- <img src="../img/del.png" class="backw" style="height: 1.2rem;
+        margin-top: 0.8rem;" /> -->
+    </div>
+    <div class="noheadback fanhui">
+        <img src="../img/backw.png" class="backw" style="    height: 1.2rem;
+        margin-top: 0.8rem;"></div>
+    <!-- <img src="../img/dian_b.png" class="share" /></div> -->
+    <!-- <video id="video1" width="100%" muted="muted" autoplay="autoplay" src="" controls="controls">
+        <source src="../img/video2.mp4" type="video/mp4">
+        您的浏览器不支持 HTML5 video 标签。
+    </video> -->
+    <video id="video1" muted="muted" autoplay="autoplay" src="" controls="controls"
+        style="width:100%; height: 100%;"></video>
+    <ul class="article articlets">
+        <li class="js-shareBtn">
+            <div><img src="../img/pic41.png" style="position: relative;top: 0.4rem;" /></div>
+        </li>
+        <li><img src="../img/pic37.png" style="height: 3rem;width:3rem;" onclick="center()"/></li>
+    </ul>
+
+    <div class="sharecover" style="display: none;">
+        <div class="cover"></div>
+        <div class="sharecont">
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon21.png"></div>
+                    <h1>站内好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon22.png"></div>
+                    <h1>微信好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon23.png"></div>
+                    <h1>朋友圈</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon27.png"></div>
+                    <h1>Facebook</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon24.png"></div>
+                    <h1>生成分享图</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon25.png"></div>
+                    <h1>复制链接</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon26.png"></div>
+                    <h1>举报</h1>
+                </li>
+            </ul>
+            <div class="cancle">取消</div>
+        </div>
+    </div>
+    <!-- 底部 评论、留言 分享 -->
+    <div class="videotips">
+        <div class="livecomment" id="livecomment">
+            <p>欢迎来到直播间！趣程提倡绿色健康直播，不提倡未成年人进行充值。直播内容和评论严禁出现违法违规、低俗色情、吸烟酗酒等内容，若有违反，将视情节严重程度对作者账号进行禁播】永久禁播或封停账号处理。</p>
+            <p><label>风雨同舟</label>准备睡觉</p>
+            <p><label>用户5910430612020</label>分享到<img src="../img/icon21.png" /></p>
+            <p><label>公寓羊毛</label>如果不喜欢能不能退的</p>
+            <p><label>公寓羊毛</label>关进入了直播间</p>
+            <p><label>喵喵说睡觉是个好事情</label>睡前迫不及待地点开看看了哈哈</p>
+        </div>
+        <div class="videocomment livecomment">
+            <input placeholder="留下点什么">
+        </div>
+    </div>
+    <div id="tanmu"></div>
+    <script>
+
+        $(function () {
+            var myVideo = document.getElementById("video1");
+            myVideo.src = "http://139.196.217.92:9208/Upload/20191211/video2.mp4";
+            myVideo.play();
+        });
+        function center() {
+            window.location.href = 'Blog.html'
+        }
+        function playPause() {
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+
+        function makeBig() {
+            myVideo.width = document.body.clientWidth;
+        }
+        $(".fanhui").click(function () {
+            window.history.go(-1);
+        })
+        
+        var div = document.getElementById('livecomment');
+        div.scrollTop = div.scrollHeight;
+        var timer1 = setInterval(function () {
+            var now = new Date();
+            div.innerHTML = div.innerHTML + ' <p><label>' + now.getTime() + '</label>睡前迫不及待地点开看看了哈哈</p>';
+            div.scrollTop = div.scrollHeight;
+        }, 800)
+
+    </script>
+</body>
+
+</html>
