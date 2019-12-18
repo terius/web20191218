@@ -16,6 +16,61 @@
         <i>推送消息</i><em></em>
     </header>
     <div class="container">
+        <div class="outlist pushdetail">
+            <table>
+                <tbody>
+                    <tr class="sel">
+                        <th><img src="../img/pic4.png"></th>
+                        <td>
+                            <h1>应该是我今年烫过的最自然的卷发了</h1>
+                            <h2>22:19</h2>
+                            <ul class="albumul albumul_one">
+                                <li>
+                                    <div><img src="../img/pic24.png" /></div>
+                                </li>
+                                <li>
+                                    <div><img src="../img/pic25.png" /></div>
+                                </li>
+                                <li>
+                                    <div><img src="../img/pic26.png" /></div>
+                                </li>
+                                <li>
+                                    <div><img src="../img/pic27.png" /></div>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sel">
+                        <th><img src="../img/pic4.png"></th>
+                        <td>
+                            <h1>应该是我今年烫过的最自然的卷发了</h1>
+                            <h2>22:19</h2>
+                            <ul class="albumul albumul_two">
+                                <li>
+                                    <div><img src="../img/pic24.png" /></div>
+                                </li>
+                                <li>
+                                    <div><img src="../img/pic25.png" /></div>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="sel">
+                        <th><img src="../img/pic4.png"></th>
+                        <td>
+                            <h1>应该是我今年烫过的最自然的卷发了</h1>
+                            <h2>22:19</h2>
+                            <ul class="albumul albumul_three">
+                                <li>
+                                    <div><img src="../img/pic24.png" /></div>
+                                    <img src="../img/play.png" class="vmarkpic">
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <img src="../img/pic9.png" style="display: block;width:100%; margin-top: 1rem;" />
     </div>
 </body>
@@ -23,6 +78,10 @@
     $(".back").click(function () {
         window.history.go(-1);
     })
+    window.onload = function () {
+        $(".albumul_one img").height(($(".albumul").eq(0).width() - 1.5 * 16) / 3);
+        $(".albumul_two img").height(($(".albumul").eq(0).width() - 1 * 16) / 2);
+    }
 </script>
 
 </html>

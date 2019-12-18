@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客正文</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>博客正文</i><em class="submit"><img src="../img/dian_g.png" class="toreport"></em>
+    </header>
+    <div class="combox comboxts" style="padding-bottom: 4rem;">
+        <div class="commentcont">
+            <div class="blogbox commentbox blogboxts">
+                <img src="../img/pic14.png" onclick="Blog()" />
+                <h1>全球热门旅游美食攻略</h1>
+                <div class="comnum">
+                    <span>12-4 13:07&nbsp;知名旅游博主</span>
+                </div>
+                <span class="focus">关注</span>
+            </div>
+            <div class="commenttxt">
+                <p>一场雪，西安就变成了长安城，仿佛梦回盛世。</p>
+                <ul class="blogpinlist">
+                    <li>
+                        <div>
+                            <img src="../img/pic18.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic19.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic20.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic21.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic22.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic23.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic24.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic25.png" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../img/pic26.png" />
+                        </div>
+                    </li>
+                </ul>
+                <p>
+                    首先雪一定要漂亮啦，我心中的漂亮得有这两个特点：
+                    １：大（是雪花大）
+                    ２：慢（这样更有利于手机抓拍，而不会给人一种凌乱的感觉）
+                    ３：针对２，一般需要无风的条件，如果风很大，那就是另外一种美了
+
+                    然后下面的条件是加分项
+                    １：光线比较暗，黎明或者傍晚（或者灯光附近）
+
+                    ２：颜色搭配，雪是白色的，不可能整个画面都是一片白吧？这时候就需要我们抓住，（或者人为制造，）其他颜色去衬托雪景，（或者叫渲染？。。反正就是这个意思）
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nav choosebtn">
+        <span class="zan">
+            <img src="../img/screenb_pre.png" class="yzan" /><label>赞同</label>&nbsp;2k
+            <img src="../img/screenb.png" class="fzan" /></span>
+        <span class="shou">
+            <div><img src="../img/reply.png" /></div>评论234
+        </span>
+        <span class="com">
+            <div><img src="../img/collect.png" /></div>收藏15
+        </span>
+    </footer>
+
+    <!-- 评论列表 -->
+    <div class="cocoverbox" style="display: none;">
+        <div class="cover"></div>
+        <footer class="commentfooter comdetail">
+            <div class="blogbox commentbox">
+                <img src="../img/pic14.png">
+                <h1>天山 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>感谢上次雪下的真的很大,不过今年应该没机会尝试了,学习之明年来雪的时候再来尝试把</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+            <div class="blogbox commentbox">
+                <img src="../img/pic15.png">
+                <h1>是合格 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>正纳闷中国的车站哪有这么大的树,最后一张图看明白了</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+            <div class="blogbox commentbox">
+                <img src="../img/pic16.png">
+                <h1>李伟 <img src="../img/dian_g.png" class="toreport"></h1>
+                <p>国外的学,也下的这么认真888</p>
+                <div class="comnum">
+                    <span>10/04</span>
+                    <span class="collectnum">
+                        2345<img src="../img/like.png">
+                        <img src="../img/reply.png" class="reply">
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 右上角分享 -->
+    <div class="sharecover" style="display: none;">
+        <div class="cover"></div>
+        <div class="sharecont">
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon21.png"></div>
+                    <h1>站内好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon22.png"></div>
+                    <h1>微信好友</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon23.png"></div>
+                    <h1>朋友圈</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon27.png"></div>
+                    <h1>Facebook</h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div>
+                        <img src="../img/icon24.png"></div>
+                    <h1>生成分享图</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon25.png"></div>
+                    <h1>复制链接</h1>
+                </li>
+                <li>
+                    <div>
+                        <img src="../img/icon26.png"></div>
+                    <h1>举报</h1>
+                </li>
+            </ul>
+            <div class="cancle">取消</div>
+        </div>
+    </div>
+
+    <!-- 图片点击放大 -->
+    <div class="picbox">
+
+    </div>
+    <script>
+
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+        $(".reply").click(function () {
+            $(".cocoverbox").show();
+        })
+        $(".shou").click(function () {
+            $(".cocoverbox").show();
+        })
+        $(".cover").click(function () {
+            $(".cocoverbox").hide();
+            $(".sharecover").hide();
+        })
+        $(".toreport").click(function () {
+            $(".sharecover").show();
+        })
+        $(".cancle").click(function () {
+            $(".sharecover").hide();
+        })
+        $(".commentbox>img").click(function () {
+            window.location.href='Blog.html'
+        })
+        window.onload = function () {
+            $(".blogpinlist div img").height($(".commentcont").width() * 0.33);
+        }
+        function Blog() {
+            window.location.href = 'Blog.html'
+        }
+
+        $(".zan label").click(function () {
+            $(".zan").removeClass("haszan");
+            $(".zan").find("label").text('赞同');
+            $(".zan").find("img").eq(0).attr("src", "../img/screenb_pre.png")
+            $(".zan").find("img").eq(1).show();
+        })
+        $(".yzan").click(function () {
+            $(".zan").addClass("haszan");
+            $(".zan").find("label").text('已赞同');
+            $(".zan").find("img").eq(0).attr("src", "../img/wscreenb_pre.png")
+            $(".zan").find("img").eq(1).hide();
+        })
+        $(".fzan").click(function () {
+            $(".zan").addClass("haszan");
+            $(".zan").find("label").text('已反对');
+            $(".zan").find("img").eq(0).attr("src", "../img/wscreenb_pre.png")
+            $(".zan").find("img").eq(1).hide();
+        })
+
+    </script>
+</body>
+
+</html>

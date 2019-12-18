@@ -38,13 +38,19 @@
                     <img src="../img/set.png" class="setbtn" onclick="set()" />
                 </div>
             </div>
+            <div class="selftip">
+                <img src="../img/woman.png">
+                <span>中国</span>
+                <span><img src="../img/icon40.png">标签</span>
+            </div>
+            <p class="selftips">如今最好，没有来日方长</p>
         </div>
         <div>
             <div class="list" onclick="mypush()">
                 <label>我的发布</label>
                 <img src="../img/listmore.png" class="listmore">
             </div>
-            <div class="list">
+            <div class="list" onclick="album()">
                 <label>我的相册</label>
                 <img src="../img/listmore.png" class="listmore">
             </div>
@@ -159,6 +165,9 @@
         }
         function mypush(){
             window.location.href = 'Live.html'
+        }
+        function album(){
+            window.location.href = 'Album.html'
         }
         
     </script>

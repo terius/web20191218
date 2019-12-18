@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>个人博客</i><em></em>
+    </header>
+    <div class="content">
+        <div class="centerhead">
+            <img src="../img/pic1.png" class='portrait' />
+            <div class="centerheadcont">
+                <ul>
+                    <li>
+                        <h1>9</h1>
+                        <p>关注</p>
+                    </li>
+                    <li>
+                        <h1>1</h1>
+                        <p>粉丝</p>
+                    </li>
+                    <li>
+                        <h1>0</h1>
+                        <p>获赞与收藏</p>
+                    </li>
+                </ul>
+                <div class="handle">
+                    <span class="editdata" onclick="persondata()">编辑资料</span>
+                    <img src="../img/icon04.png" class="setbtn" onclick="set()" />
+                </div>
+            </div>
+            <div class="selftip">
+                <img src="../img/woman.png"/>
+                <span>中国</span>
+                <span><img src="../img/icon40.png"/>标签</span>
+            </div>
+            <p class="selftips">如今最好，没有来日方长</p>
+        </div>
+        <div class="typeboxsc">
+            <div class="typebox botypebox selfbox">
+                <ul class="type selftype">
+                    <li class="sel"><span>笔记</span></li>
+                    <li><span>收藏</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bloglist">
+            <div class="bloglistnum"><span class="sel">所有笔记·132</span><span>视频·2</span></div>
+            <div class="lbloglist">
+                <div class="lbloglistbox">
+
+                    <!-- <mark class="lmarkpic">直播中</mark> -->
+                    <div class="blogpic">
+                        <img src="../img/pic10.png">
+                    </div>
+                    <h1>1.非常酷 又梦幻的昨天</h1>
+                    <div class="blogbox">
+                        <img src="../img/pic14.png">
+                        <h1>周雨彤微博</h1>
+                        <p>3小时前</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lbloglist">
+                <div class="lbloglistbox lbloglistboxvi">
+                    <img src="../img/playb.png" class="vmarkpic">
+                    <div class="blogpic">
+                        <img src="../img/pic11.png">
+                    </div>
+                    <h1>1.非常酷 又梦幻的昨天</h1>
+                    <div class="blogbox">
+                        <img src="../img/pic15.png">
+                        <h1>周雨彤微博</h1>
+                        <p>3小时前</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lbloglist">
+                <div class="lbloglistbox lbloglistboxvi">
+                    <img src="../img/playb.png" class="vmarkpic">
+                    <div class="blogpic">
+                        <img src="../img/pic12.png">
+                    </div>
+                    <h1>1.非常酷 又梦幻的昨天</h1>
+                    <div class="blogbox">
+                        <img src="../img/pic14.png">
+                        <h1>周雨彤微博</h1>
+                        <p>3小时前</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lbloglist">
+                <div class="lbloglistbox">
+                    <div class="blogpic">
+                        <img src="../img/pic13.png">
+                    </div>
+                    <h1>1.非常酷 又梦幻的昨天</h1>
+                    <div class="blogbox">
+                        <img src="../img/pic14.png">
+                        <h1>周雨彤微博</h1>
+                        <p>3小时前</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="nav">
+        <ul>
+            <li>
+                <div onclick="index()">
+                    <img src="../img/icon01.png" />
+                    <h1>首页</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="blog()">
+                    <img src="../img/icon02_pre.png" />
+                    <h1>博客</h1>
+                </div>
+            </li>
+            <li class="publish">
+                <div onclick="pubart()">
+                    <img src="../img/icon03.png" />
+                </div>
+            </li>
+            <li>
+                <div onclick="messcenter()">
+                    <img src="../img/icon04.png" />
+                    <h1>消息</h1>
+                </div>
+            </li>
+            <li>
+                <div onclick="personcenter()">
+                    <img src="../img/icon05.png" />
+                    <h1>我的</h1>
+                </div>
+            </li>
+        </ul>
+    </footer>
+    <script>
+        $(".portrait").click(function () {
+            window.location.href = 'ChoosePortrait.html'
+        })
+        function index() {
+            window.location.href = 'Index.html'
+        }
+        function blog() {
+            window.location.href = 'Login.html'
+        }
+        function messcenter() {
+            window.location.href = 'MessageCenter.html'
+        }
+        function personcenter() {
+            window.location.href = 'PersonCenter.html'
+        }
+        function persondata() {
+            window.location.href = 'SetPersonalData.html'
+        }
+        function set(){
+            window.location.href = 'MessageCenter.html'
+        }
+
+    </script>
+</body>
+
+</html>

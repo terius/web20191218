@@ -5,26 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页</title>
+    <title>博客</title>
     <link rel="stylesheet" href="../css/mobile.css" />
     <script src="../js/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
-    <!-- <header>
-        <span class="back"><img src="../img/back.png"></span>
-        <i></i><em></em>
-    </header> -->
-    <div class="content">
-        <div class="searchbox">
-            <img src="../img/search.png" />
-            <input type="text" placeholder="请输入搜索关键词" />
-            <label><img src="../img/sdel.png" /></label>
-            <span>搜索</span>
+    <div class="bloghead">
+        <div class="personpic">
+            <img src="../img/pic1.png" />
         </div>
+        <div class="sxbox">
+            <span>私信</span>
+            <span class="attspan">关注</span>
+        </div>
+        <ul class="sxul">
+            <li>
+                <h1>300</h1>
+                <h2>发布量</h2>
+            </li>
+            <li>
+                <h1>100039</h1>
+                <h2>粉丝数</h2>
+            </li>
+            <li>
+                <h1>356</h1>
+                <h2>关注度</h2>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <!-- <div class="typebox botypebox">
+            <ul class="type">
+                <li class="sel"><span>发现</span></li>
+                <li><span>同城</span></li>
+                <li><span>明星</span></li>
+                <li><span>榜单</span></li>
+                <li><span>美食</span></li>
+                <li><span>动漫</span></li>
+            </ul>
+        </div> -->
         <div class="typeboxsc">
-            <div class="typebox">
-                <ul class="type">
+            <div class="typebox botypebox">
+                <ul class="type" style="width: 384px;">
                     <li class="sel"><span>发现</span></li>
                     <li><span>同城</span></li>
                     <li><span>旅游</span></li>
@@ -32,50 +55,12 @@
                     <li><span>直播</span></li>
                     <li><span>短视频</span></li>
                 </ul>
-                <img src="../img/shai.png" class="shai" />
+                <img src="../img/shai.png" class="shai">
             </div>
         </div>
-        <dl class="focuspic">
-            <dt>
-                <div>
-                    <img src="../img/pic1.png" />
-                    <img src="../img/live.png" class="lmarkpic" />
-                </div>
-                <h1>我的故事</h1>
-            </dt>
-            <dt>
-                <div>
-                    <img src="../img/pic4.png" />
-                    <img src="../img/live.png" class="lmarkpic" />
-                </div>
-                <h1>直播广场</h1>
-            </dt>
-            <dt>
-                <div>
-                    <img src="../img/pic37.png" />
-
-                </div>
-                <h1>一杯</h1>
-            </dt>
-            <dt>
-                <div>
-                    <img src="../img/pic8.png" />
-                </div>
-                <h1>戚薇</h1>
-            </dt>
-            <dt>
-                <div>
-                    <img src="../img/pic17.png" />
-                    <img src="../img/live.png" class="lmarkpic" />
-                </div>
-                <h1>吉克隽逸</h1>
-            </dt>
-        </dl>
         <div class="bloglist">
             <div class="lbloglist">
                 <div class="lbloglistbox">
-
-                    <!-- <mark class="lmarkpic">直播中</mark> -->
                     <div class="blogpic">
                         <img src="../img/pic10.png" />
                     </div>
@@ -89,7 +74,7 @@
             </div>
             <div class="lbloglist">
                 <div class="lbloglistbox lbloglistboxvi">
-                    <img src="../img/playb.png" class="vmarkpic" />
+                    <img src="../img/playb.png" class="vmarkpic">
                     <div class="blogpic">
                         <img src="../img/pic11.png" />
                     </div>
@@ -102,8 +87,7 @@
                 </div>
             </div>
             <div class="lbloglist">
-                <div class="lbloglistbox lbloglistboxvi">
-                    <img src="../img/playb.png" class="vmarkpic" />
+                <div class="lbloglistbox">
                     <div class="blogpic">
                         <img src="../img/pic12.png" />
                     </div>
@@ -134,13 +118,13 @@
         <ul>
             <li>
                 <div onclick="index()">
-                    <img src="../img/icon01_pre.png" />
+                    <img src="../img/icon01.png" />
                     <h1>首页</h1>
                 </div>
             </li>
             <li>
                 <div onclick="blog()">
-                    <img src="../img/icon02.png" />
+                    <img src="../img/icon02_pre.png" />
                     <h1>博客</h1>
                 </div>
             </li>
@@ -164,7 +148,7 @@
         </ul>
     </footer>
 
-    <div class="coverbox indexcoverbox" style="display: none;">
+    <div class="coverbox indexcoverbox" style="display: none;top:0">
         <div class="cover"></div>
         <div class="covercont">
             <div class="coverscroll">
@@ -204,6 +188,9 @@
                 <h1 class="covertit">按内容</h1>
                 <ul class="coverul">
                     <li>
+                        <div>软文</div>
+                    </li>
+                    <li>
                         <div>直播</div>
                     </li>
                     <li>
@@ -220,11 +207,17 @@
                     </li>
                 </ul>
             </div>
-            <div class="pubbtn coversure">确定</div>
         </div>
     </div>
 
     <script>
+        window.onload = function () {
+            $(".coverbox").height(window.screen.availHeight - $(".searchbox").height());
+            $(".type").width($(".type li").eq(0).width() * $(".type li").length)
+        }
+        $(".addtype").click(function () {
+            $(".coverbox").hide();
+        })
         function persondata() {
             window.location.href = 'SetPersonalData.html'
         }
@@ -232,7 +225,7 @@
             window.location.href = 'Index.html'
         }
         function blog() {
-            window.location.href = 'Login.html'
+            window.location.href = 'Blog.html'
         }
         function messcenter() {
             window.location.href = 'MessageCenter.html'
@@ -240,8 +233,8 @@
         function personcenter() {
             window.location.href = 'PersonCenter.html'
         }
-        function pubart() {
-            window.location.href = 'BlogType.html'
+        function publishblog() {
+
         }
         $(".shai").click(function () {
             $(".indexcoverbox").show();
@@ -249,18 +242,11 @@
         $(".cover").click(function () {
             $(".coverbox").hide();
         })
-        $(".coversure").click(function () {
-            $(".coverbox").hide();
-        })
-        $(".addtype").click(function () {
-            $(".coverbox").hide();
-        })
-        $(".searchbox label").click(function () {
-            $(".searchbox input").val("");
+        $(".coverul li").click(function () {
+            $(this).addClass("lisel");
         })
         window.onload = function () {
             $(".coverbox").height(window.screen.availHeight - $(".searchbox").height());
-            $(".type").width($(".type li").eq(0).width() * $(".type li").length)
         }
         $(".lbloglistbox").click(function () {
             if ($(this).hasClass("lbloglistboxvi")) {
@@ -270,26 +256,10 @@
             }
 
         })
-        $(".type li").click(function () {
-            $(this).addClass("sel").siblings().removeClass("sel");
-        })
-        $(".coverul li").click(function () {
-            $(this).addClass("lisel");
-        })
-        $(".focuspic dt").click(function () {
-            window.location.href = 'Live.html'
-        })
-        $(".searchbox input").focus(function () {
-            $(".searchbox label").show();
-        })
-        $(".searchbox input").blur(function () {
-            if (!$(".searchbox input").val != '') {
-                $(".searchbox label").hide();
-            }
-        })
-        $(".searchbox span").click(function(){
-            $(".searchbox label").hide();
-        })
+
+        function pubart() {
+            window.location.href = 'BlogType.html'
+        }
     </script>
 </body>
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的相册</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="back"><img src="../img/back.png"></span>
+        <i>我的相册</i><em></em>
+    </header>
+    <div class="albumlist">
+        <table class="albumtab">
+            <tr>
+                <th>
+                    <h1>12月</h1>
+                    <h2>2019</h2>
+                </th>
+                <td>
+                    <ul class="albumul">
+                        <li>
+                            <div><img src="../img/pic18.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic19.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic20.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic21.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic22.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic23.png" /></div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h1>11月</h1>
+                    <h2>2019</h2>
+                </th>
+                <td>
+                    <ul class="albumul">
+                        <li>
+                            <div><img src="../img/pic24.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic25.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic26.png" /></div>
+                        </li>
+                        <li>
+                            <div><img src="../img/pic27.png" /></div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h1>10月</h1>
+                    <h2>2019</h2>
+                </th>
+                <td>
+                    <ul class="albumul">
+                        <li>
+                            <div><img src="../img/pic28.png" /></div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        window.onload=function (){
+            $(".albumul img").height(($(".albumul").eq(0).width()- 1.5 * 16) / 3 );
+        }
+        
+        $(".back").click(function () {
+            window.history.go(-1);
+        })
+    </script>
+</body>
+
+</html>
