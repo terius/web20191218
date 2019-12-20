@@ -1,30 +1,93 @@
-<!DOCTYPE> 
-<html> 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="滚动条, scrollbar, 页面底部, 聊天窗口, " />
-    <meta name="description" content="有些时候（如开发聊天程序），我们需要将将滚动条（scrollbar）保持在最底部，比如聊天窗口，最新发出和收到的信息要显示在最 下方，如果要看到最下方的内容，就必须保证滚动条保持在最底部。" />
-    <title>将滚动条（scrollbar）保持在最底部的方法 - 滚动条, scrollbar, 页面底部, 聊天窗口, </title>
-</head>
-<body>
-    <div id="example">
-        <h3 id="example_title">将滚动条（scrollbar）保持在最底部的方法</h3>
-        <div id="example_main">
-            <script type="text/javascript">
-                function add()
-                {
-                    var now = new Date();
-                    var div = document.getElementById('scrolldIV');
-                    div.innerHTML = div.innerHTML + 'time_' + now.getTime() + '<br />';
-                    div.scrollTop = div.scrollHeight;
-                }
-            </script>
-            <span class="notice">请点击“插入一行”按钮，插入最新信息，当出现滚动条时，滚动条将自动保持在底部。</span><br />
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>test</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="/js/swiper/swiper.min.css" />
 
-            <div id="scrolldIV" style="overflow:auto; height: 100px; width: 400px; border: 1px solid #999;">
-            </div>
-            <input type="button" value="插入一行" onclick="add();">
+    <style>
+      .swpage {
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        border: 1px solid red;
+      }
+      .s1 {
+        background-color: green;
+      }
+      .s2 {
+        background-color: blue;
+      }
+      .s3 {
+        background-color: yellowgreen;
+      }
+
+      .auto-size {
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        padding: 10px;
+      }
+      .child {
+        position: relative;
+        height: 0;
+        width: 100%;
+        padding-top: 75%;
+        background: url(/img/peoplehead/贝贝.png) no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+      }
+      .child > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="root">
+      <div class="swiper-container swpage">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide s1">slider1</div>
+          <!-- <div class="swiper-slide s2">slider2</div>
+          <div class="swiper-slide s3">slider3</div> -->
         </div>
+      </div>
+      <button id="btn1">上一页</button>
+      <button id="btn2">下一页</button>
+      <div class="auto-size">
+        <div class="child">
+          <div>aaaaa</div>
+        </div>
+      </div>
     </div>
-</body>
+    <script type="text/javascript" src="../data/all.js"></script>
+    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/swiper/swiper.min.js"></script>
+    <script>
+      var vue = new Vue({
+        el: ".root",
+        mounted() {
+          var mySwiper = new Swiper(".swiper-container", {
+            //autoplay: true //可选选项，自动滑动
+          });
+          $("#btn1").click(function() {
+            mySwiper.slidePrev();
+          });
+          $("#btn2").click(function() {
+            mySwiper.slideNext();
+          });
+        }
+      });
+    </script>
+  </body>
 </html>

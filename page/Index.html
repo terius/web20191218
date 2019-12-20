@@ -229,6 +229,10 @@
           searchKey: ""
         },
         created() {
+          var tab = com.getSession("type");
+          if (tab) {
+            this.selItem = parseInt(tab);
+          }
           this.getData();
         },
         mounted() {
@@ -335,6 +339,7 @@
         },
         watch: {
           selItem(newV, oldV) {
+            com.saveSession("type", newV);
             this.getData();
           }
         }

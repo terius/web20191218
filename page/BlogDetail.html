@@ -7,20 +7,7 @@
     <title>博客正文</title>
     <link rel="stylesheet" href="../css/mobile.css" />
     <link rel="stylesheet" href="../css/main.css" />
-    <!-- <link rel="stylesheet" href="../js/swiper/swiper.min.css" /> -->
-    <link rel="stylesheet" href="../js/jquery-weui/css/jquery-weui.min.css" />
-    <link
-      rel="stylesheet"
-      href="/css/font-awesome-4.7.0/css/font-awesome.min.css"
-    />
-
-    <!-- Core CSS file -->
     <link rel="stylesheet" href="/js/photoswipe/photoswipe.css" />
-
-    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
-     In the folder of skin CSS file there are also:
-     - .png and .svg icons sprite, 
-     - preloader.gif (for browsers that do not support CSS animations) -->
     <link
       rel="stylesheet"
       href="/js/photoswipe/default-skin/default-skin.css"
@@ -49,9 +36,8 @@
             <div class="comnum">
               <span>{{info.addTime}}&nbsp;{{info.peopleInfo.title}}</span>
             </div>
-            <span class="focus" :class="{hasfocus:focus}" @click="focus=!focus"
-              >{{focus?'已关注':'关注'}}</span
-            >
+            <span v-if="!focus" class="focus2" @click="focus=!focus">关注</span>
+            <span v-else class="hasfocus" @click="focus=!focus">已关注</span>
           </div>
           <div class="commenttxt">
             <p>{{info.title}}</p>
@@ -61,7 +47,11 @@
                 v-for="(picurl,index) in info.pic"
                 v-bind:class="picWidth"
               >
-                <img :src="picurl" @click="goToSwiper(index)" />
+                <div>
+                  <div class="pic-inner">
+                    <img :src="picurl" @click="goToSwiper(index)" />
+                  </div>
+                </div>
               </div>
             </div>
             <!-- <ul class="blogpinlist">
@@ -93,24 +83,31 @@
       </footer>
 
       <!-- 评论列表 -->
-      <div class="cocoverbox" style="display: none;">
+      <div id="comment-list" class="cocoverbox" style="display: none;">
         <div class="cover"></div>
-        <footer class="commentfooter comdetail">
-          <div class="blogbox commentbox">
-            <img src="../img/pic14.png" />
-            <h1>天山 <img src="../img/dian_g.png" class="toreport" /></h1>
+        <footer class="commentfooter comdetail" id="comdetail">
+          <div class="blogbox commentbox" v-for="item in info.comment">
+            <a :href="'/page/Blog.html?id=' + item.peopleInfo.id">
+              <img class="people-head-pic" :src="item.peopleInfo.pic" />
+            </a>
+            <h1>
+              {{item.peopleInfo.name}}<img
+                src="../img/dian_g.png"
+                class="toreport"
+              />
+            </h1>
             <p>
-              感谢上次雪下的真的很大,不过今年应该没机会尝试了,学习之明年来雪的时候再来尝试把
+              {{item.text}}
             </p>
             <div class="comnum">
-              <span>10/04</span>
+              <span>{{item.time}}</span>
               <span class="collectnum">
-                2345<img src="../img/like.png" />
+                {{item.like}}<img src="../img/like.png" />
                 <img src="../img/reply.png" class="reply" />
               </span>
             </div>
           </div>
-          <div class="blogbox commentbox">
+          <!-- <div class="blogbox commentbox">
             <img src="../img/pic15.png" />
             <h1>是合格 <img src="../img/dian_g.png" class="toreport" /></h1>
             <p>正纳闷中国的车站哪有这么大的树,最后一张图看明白了</p>
@@ -133,7 +130,7 @@
                 <img src="../img/reply.png" class="reply" />
               </span>
             </div>
-          </div>
+          </div> -->
         </footer>
       </div>
 
@@ -256,13 +253,6 @@
     <script type="text/javascript" src="../data/all.js"></script>
     <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script
-      type="text/javascript"
-      src="/js/swiper/swiper.animate1.0.3.min.js"
-    ></script> -->
-    <!-- <script src="../js/jquery-weui/js/jquery-weui.min.js"></script>
-    <script src="../js/jquery-weui/js/swiper.min.js"></script> -->
-    <!-- <script type="text/javascript" src="/js/swiper/swiper.min.js"></script> -->
 
     <!-- Core JS file -->
     <script src="/js/photoswipe/photoswipe.js"></script>
@@ -355,18 +345,25 @@
           mySwiper: null
         },
         created() {
-          this.info = detail.find(d => d.id == this.id);
-          this.info.peopleInfo = people.find(d => d.id == this.info.peopleId);
-          console.log(this.info);
+          this.initData();
         },
         mounted() {
           //   this.mySwiper = $.photoBrowser({
           //     items: this.info.pic
           //   });
           initJQFun();
+          com.initPullRefresh("comment-list");
           //  this.initPhotoSwipe();
         },
         methods: {
+          initData() {
+            this.info = detail.find(d => d.id == this.id);
+            this.info.peopleInfo = people.find(d => d.id == this.info.peopleId);
+            this.info.comment = comment.filter(d => d.detailId == this.id);
+            this.info.comment.forEach(item => {
+              item.peopleInfo = people.find(d => d.id == item.peopleId);
+            });
+          },
           toMainPage() {
             location.href = "/page/index.html";
           },

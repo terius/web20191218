@@ -6,10 +6,10 @@
   width: 100%;
 }
 .width49 {
-  width: 49%;
+  width: 50%;
 }
 .width32 {
-  width: 32.3%;
+  width: 33.3333333%;
 }
 
 a {
@@ -21,6 +21,11 @@ a {
   // &:hover {
   //   color: #000;
   // }
+}
+
+.cocoverbox,
+.sharecover {
+  z-index: 9999;
 }
 
 //*************************首页*************************//
@@ -88,7 +93,7 @@ a {
         }
       }
       .item__title {
-        display: inline-block;
+        display: block;
         height: 1rem;
         padding: 0.65rem 0 0.6rem 0.2rem;
         font-size: 0.75rem;
@@ -106,16 +111,57 @@ a {
 
 //*************************详细页*************************//
 .detail-root {
+  .focus2 {
+    background: url(../img/atten.png) 1rem center no-repeat;
+    background-color: #f5f5f5;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem 0.4rem 2rem;
+    background-size: 0.7rem;
+    color: #256d30;
+    border-radius: 1rem;
+  }
+
+  .hasfocus {
+    background-color: #f5f5f5;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    background-size: 0.7rem;
+    color: #256d30;
+    border-radius: 1rem;
+  }
   .detail-pic {
     position: relative;
-    padding: 0.5rem 1rem 0;
+    padding: 0.5rem 0.7rem 0 1rem;
     display: flex;
-    justify-content: space-between;
+    //  justify-content: space-between;
     flex-wrap: wrap;
+
     .detail-pic__item {
       box-sizing: border-box;
-      padding-bottom: 0.5rem;
-      height: 7rem;
+      padding: 0 0.3rem 0.3rem 0;
+
+      //  padding-top: 50%;
+      > div {
+        width: 100%;
+        height: 0;
+        padding-top: 75%;
+        position: relative;
+
+        .pic-inner {
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 10;
+        }
+      }
 
       img {
         width: 100%;
@@ -157,6 +203,15 @@ a {
     padding: 0.2rem 1rem;
     text-indent: 2rem;
     line-height: 1.5rem;
+  }
+
+  .comdetail {
+    max-height: 30%;
+    z-index: 9999;
+    .people-head-pic {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 }
 
