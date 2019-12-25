@@ -104,7 +104,7 @@
     <!-- 评论列表 -->
     <div class="cocoverbox" style="display: none;">
         <div class="cover"></div>
-        <footer class="commentfooter comdetail">
+        <footer class="commentfooter comdetail" style="bottom: 1.5rem;">
             <div class="blogbox commentbox">
                 <img src="../img/pic14.png">
                 <h1>天山 <img src="../img/dian_g.png" class="toreport"></h1>
@@ -143,6 +143,13 @@
             </div>
         </footer>
     </div>
+    <div class="messbox messboxts">
+        <div>
+            <textarea id="textarea" placeholder="...发消息"
+                style="resize: none; height: 32px; overflow-y: hidden;"></textarea>
+            <span>发送</span></div>
+    </div>
+
 
     <!-- 右上角分享 -->
     <div class="sharecover" style="display: none;">
@@ -202,12 +209,15 @@
         })
         $(".reply").click(function () {
             $(".cocoverbox").show();
+            $(".messboxts").show();
         })
         $(".shou").click(function () {
             $(".cocoverbox").show();
+            $(".messboxts").show();
         })
         $(".cover").click(function () {
             $(".cocoverbox").hide();
+            $(".messboxts").hide();
             $(".sharecover").hide();
         })
         $(".toreport").click(function () {
@@ -217,7 +227,7 @@
             $(".sharecover").hide();
         })
         $(".commentbox>img").click(function () {
-            window.location.href='Blog.html'
+            window.location.href = 'Blog.html'
         })
         window.onload = function () {
             $(".blogpinlist div img").height($(".commentcont").width() * 0.33);

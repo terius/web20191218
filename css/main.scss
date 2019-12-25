@@ -56,6 +56,12 @@ a {
         background-size: contain;
       }
     }
+
+    .live-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   .type li {
     width: 16% !important;
@@ -74,6 +80,7 @@ a {
     flex-wrap: wrap;
     .bloglist__item {
       padding-right: 0.56rem;
+      padding-bottom: 1rem;
       box-sizing: border-box;
       width: 50%;
 
@@ -104,6 +111,26 @@ a {
       }
       .blogbox {
         padding-bottom: 1rem;
+      }
+    }
+  }
+
+  .pubbtn.coversure {
+    margin-top: 1rem;
+  }
+  .indexcoverbox {
+    .coverscroll {
+      position: relative;
+      .close-tab {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.7rem;
+        color: #256d30;
+      }
+      .selecttype {
+        background-color: #256d30;
+        color: #ffffff;
       }
     }
   }
@@ -206,7 +233,7 @@ a {
   }
 
   .comdetail {
-    max-height: 30%;
+    max-height: 60%;
     z-index: 9999;
     .people-head-pic {
       width: 2.5rem;
@@ -227,4 +254,12 @@ a {
 
 //*************************视频播放*************************//
 .video-root {
+}
+
+//*************************注册页面*************************//
+.register-root {
+  .iscanclick {
+    background-color: #256d30;
+    color: #fff;
+  }
 }

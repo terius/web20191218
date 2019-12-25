@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>内容编辑</title>
+    <link rel="stylesheet" href="../css/mobile.css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="/js/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <span class="back"><img src="../img/back.png"/></span>
+      <i></i><em></em>
+    </header>
+    <div class="bgcontainer">
+      <div class="editcont">
+        <div class="pic">
+          <div class="lpic">
+            <img src="../img/pic18.png" />
+          </div>
+          <div class="lpic addpic"></div>
+        </div>
+        <div class="arttxt">
+          <input type="text" placeholder="填写标题会有更多赞哦~" />
+        </div>
+      </div>
+      <div class="editcont">
+        <textarea placeholder="添加正文"></textarea>
+      </div>
+      <div class="editcont" style="padding-top: 0.7rem;">
+        <div class="markbox">
+          <label class="lmark" style="margin-top: 0.7rem;"
+            ><img src="../img/pic44.png" />话题标签</label
+          >
+          <img
+            src="../img/listmore.png"
+            class="showmark"
+            style="margin-top: 1rem;"
+          />
+          <div class="rmark">
+            <span>选择合适的话题会有更多赞~</span>
+          </div>
+        </div>
+      </div>
+      <div class="editcont">
+        <div class="markbox">
+          <label class="lmark lmarkts"
+            ><img src="../img/pic35.png" />扬州太阳俱乐部</label
+          >
+          <img src="../img/listmore.png" class="showmark" />
+        </div>
+      </div>
+    </div>
+    <footer class="articlefooter">
+      <label class="showloca">发布</label>
+    </footer>
+
+    <div id="dpage" style="bottom:-318px;">
+      <a href="javascript:void(0);">
+        <input type="button" name="file" class="button" value="拍照" />
+        <input
+          id="file"
+          type="file"
+          onchange="javascript:setImagePreview();"
+          accept="image/*"
+          multiple=""
+        />
+      </a>
+      <a href="javascript:void(0);"
+        ><input
+          type="button"
+          name="file"
+          class="button"
+          value="从手机相册选择"/>
+        <input
+          id="file"
+          type="file"
+          onchange="javascript:setImagePreview();"
+          accept="image/*"
+          multiple=""
+      /></a>
+
+      <a href="javascript:void(0);" class="qx"
+        ><button id="cancle">取消</button></a
+      >
+    </div>
+
+    <div
+      class="submitModal"
+      style="display: none;position: fixed;top:0;left:0;z-index:3;width: 100%;height: 100%;"
+    >
+      <img
+        src="../img/loading.gif"
+        alt=""
+        style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:62%
+"
+      />
+    </div>
+
+    <script>
+      $(".back").click(function() {
+        window.history.go(-1);
+      });
+      $(".showloca").click(function() {
+        window.location.href = "PublishType.html";
+      });
+      $(".addpic").click(function() {
+        $("#dpage").addClass("show");
+      });
+      $("#cancle").click(function() {
+        $("#dpage").removeClass("show");
+      });
+
+      $(".showloca").click(function() {
+        $(".submitModal").show();
+        setTimeout(function() {
+          window.location.href = "Index.html";
+        }, 5000);
+      });
+      $(".rmark").click(function() {
+        window.location.href = "MarkType.html";
+      });
+    </script>
+  </body>
+</html>

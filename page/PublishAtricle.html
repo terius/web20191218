@@ -1,102 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>内容编辑</title>
     <link rel="stylesheet" href="../css/mobile.css" />
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="/js/weui/weui.min.css" />
+  </head>
 
-    <script src="../js/jquery-1.9.1.min.js"></script>
-</head>
-
-<body>
-    <header>
-        <span class="back"><img src="../img/back.png"></span>
+  <body>
+    <div id="root" v-cloak>
+      <div ref="showpic" class="weui-gallery" id="gallery">
+        <span
+          class="weui-gallery__img"
+          id="galleryImg"
+          :style="'background-image: url(' + selectSrc + ')'"
+        ></span>
+        <div class="weui-gallery__opr">
+          <a href="javascript:" class="weui-gallery__del">
+            <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+          </a>
+        </div>
+      </div>
+      <header>
+        <span class="back"><img src="../img/back.png"/></span>
         <i></i><em></em>
-    </header>
-    <div class="bgcontainer">
+      </header>
+      <div class="bgcontainer">
         <div class="editcont">
-            <div class="pic">
-                <div class="lpic">
-                    <img src="../img/pic18.png" />
-                </div>
-                <div class="lpic addpic">
-                </div>
+          <div class="pic">
+            <div class="weui-uploader__bd">
+              <ul class="weui-uploader__files" id="uploaderFiles">
+                <li
+                  v-for="file in selectFiles"
+                  class="weui-uploader__file"
+                  :style="'background-image:url(' + file.src +')'"
+                  @click="showPic(file.src)"
+                ></li>
+              </ul>
+              <div class="weui-uploader__input-box">
+                <input
+                  @change="changeFile"
+                  id="uploaderInput"
+                  class="weui-uploader__input"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+              </div>
             </div>
-            <div class="arttxt">
-                <input type="text" placeholder="填写标题会有更多赞哦~" />
-            </div>
+          </div>
+          <div class="arttxt">
+            <input type="text" placeholder="填写标题会有更多赞哦~" />
+          </div>
         </div>
         <div class="editcont">
-            <textarea placeholder="添加正文"></textarea>
+          <textarea placeholder="添加正文"></textarea>
         </div>
         <div class="editcont" style="padding-top: 0.7rem;">
-            <div class="markbox">
-                <label class="lmark" style="margin-top: 0.7rem;"><img src="../img/pic44.png" />话题标签</label>
-                <img src="../img/listmore.png" class="showmark" style="margin-top: 1rem;"/>
-                <div class="rmark">
-                    <span>选择合适的话题会有更多赞~</span>
-                </div>
+          <div class="markbox">
+            <label class="lmark" style="margin-top: 0.7rem;"
+              ><img src="../img/pic44.png" />话题标签</label
+            >
+            <img
+              src="../img/listmore.png"
+              class="showmark"
+              style="margin-top: 1rem;"
+            />
+            <div class="rmark">
+              <span>选择合适的话题会有更多赞~</span>
             </div>
+          </div>
         </div>
         <div class="editcont">
-            <div class="markbox">
-                <label class="lmark lmarkts"><img src="../img/pic35.png" />扬州太阳俱乐部</label>
-                <img src="../img/listmore.png" class="showmark" />
-            </div>
+          <div class="markbox">
+            <label class="lmark lmarkts"
+              ><img src="../img/pic35.png" />扬州太阳俱乐部</label
+            >
+            <img src="../img/listmore.png" class="showmark" />
+          </div>
         </div>
-    </div>
-    <footer class="articlefooter">
+      </div>
+      <footer class="articlefooter">
         <label class="showloca">发布</label>
-    </footer>
+      </footer>
 
-    <div id="dpage" style="bottom:-318px;">
+      <div id="dpage" style="bottom:-318px;">
         <a href="javascript:void(0);">
-            <input type="button" name="file" class="button" value="拍照">
-            <input id="file" type="file" onchange="javascript:setImagePreview();" accept="image/*" multiple="">
+          <input type="button" name="file" class="button" value="拍照" />
+          <input
+            id="file"
+            type="file"
+            onchange="javascript:setImagePreview();"
+            accept="image/*"
+            multiple=""
+          />
         </a>
-        <a href="javascript:void(0);"><input type="button" name="file" class="button" value="从手机相册选择">
-            <input id="file" type="file" onchange="javascript:setImagePreview();" accept="image/*" multiple=""></a>
-        <a href="javascript:void(0);" class="qx"><button id="cancle">取消</button></a>
-    </div>
+        <a href="javascript:void(0);"
+          ><input
+            type="button"
+            name="file"
+            class="button"
+            value="从手机相册选择"/>
+          <input
+            id="file"
+            type="file"
+            onchange="javascript:setImagePreview();"
+            accept="image/*"
+            multiple=""
+        /></a>
 
-    <div class="submitModal" style="display: none;position: fixed;top:0;left:0;z-index:3;width: 100%;height: 100%;">
-        <img src="../img/loading.gif" alt="" style="
+        <a href="javascript:void(0);" class="qx"
+          ><button id="cancle">取消</button></a
+        >
+      </div>
+
+      <div
+        class="submitModal"
+        style="display: none;position: fixed;top:0;left:0;z-index:3;width: 100%;height: 100%;"
+      >
+        <img
+          src="../img/loading.gif"
+          alt=""
+          style="
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width:62%
-">
+"
+        />
+      </div>
     </div>
-
+    <script type="text/javascript" src="../data/all.js"></script>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
     <script>
-        $(".back").click(function () {
-            window.history.go(-1);
-        })
-        $(".showloca").click(function () {
-            window.location.href = 'PublishType.html'
-        })
-        $(".addpic").click(function () {
-            $("#dpage").addClass("show");
-        })
-        $("#cancle").click(function () {
-            $("#dpage").removeClass("show");
+      var initJQuery = function() {
+        $(".back").click(function() {
+          window.history.go(-1);
+        });
+        $(".showloca").click(function() {
+          window.location.href = "PublishType.html";
+        });
+        $(".addpic").click(function() {
+          $("#dpage").addClass("show");
+        });
+        $("#cancle").click(function() {
+          $("#dpage").removeClass("show");
         });
 
-        $(".showloca").click(function () {
-            $(".submitModal").show()
-            setTimeout(function () {
-                window.location.href = "Index.html";
-            }, 5000)
+        $(".showloca").click(function() {
+          $(".submitModal").show();
+          setTimeout(function() {
+            window.location.href = "Index.html";
+          }, 5000);
         });
-        $(".rmark").click(function () {
-            window.location.href = "MarkType.html";
+        $(".rmark").click(function() {
+          window.location.href = "MarkType.html";
         });
+      };
+      var vue = new Vue({
+        el: "#root",
+        data: {
+          selectFiles: [],
+          selectSrc: "",
+          showPicDom: null
+        },
+        mounted() {
+          this.showPicDom = $("#gallery");
+          initJQuery();
+        },
+        methods: {
+          changeFile(e) {
+            //  console.log("changeFile");
+            var src,
+              url = window.URL || window.webkitURL || window.mozURL,
+              files = e.target.files;
+            if (files.length > 0) {
+              for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+                if (url) {
+                  src = url.createObjectURL(file);
+                } else {
+                  src = e.target.result;
+                }
+
+                let fileInArray = this.selectFiles.find(
+                  d => d.name == file.name && d.size == file.size
+                );
+                if (!fileInArray) {
+                  //  this.selectSrc = src;
+                  this.selectFiles.push({
+                    name: file.name,
+                    size: file.size,
+                    src: src
+                  });
+                }
+
+                //  console.log(this.selectFiles);
+              }
+            }
+          },
+          showPic(src) {
+            this.selectSrc = src;
+            this.showPicDom.fadeIn(100);
+          }
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>

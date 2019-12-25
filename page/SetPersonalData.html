@@ -1,121 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>个人资料</title>
     <link rel="stylesheet" href="../css/mobile.css" />
-    <script src="../js/jquery-1.9.1.min.js"></script>
-</head>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <span class="back"><img src="../img/back.png"></span>
-        <i>个人资料</i><em></em>
+      <span class="back"><img src="../img/back.png"/></span>
+      <i>个人资料</i><em></em>
     </header>
     <div>
-        <div class="setbox">
-            <div class="pubtitlist">
-                <label>所属国籍</label>
-                <div class="pubtitcont">
-                    <span>中国</span>
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist" onclick="carid()">
-                <label>身份证</label>
-                <div class="pubtitcont pubtitcontts">
-                    <input placeholder="请输入证件号码" /></div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist"  onclick="nickName()">
-                <label>昵称</label>
-                <div class="pubtitcont pubtitcontts">
-                    <input value="昵称" />
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist">
-                <label>性别</label>
-                <div class="pubtitcont pubtitcontts">
-                    <select>
-                        <option>男</option>
-                        <option>女</option>
-                    </select>
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist">
-                <label>常住地</label>
-                <div class="pubtitcont pubtitcontts">
-                    <input value="苏州" />
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist">
-                <label>生日</label>
-                <div class="pubtitcont pubtitcontts">
-                    <input placeholder="完善你的个人信息" />
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist" onclick="introduce()">
-                <label>自我介绍</label>
-                <div class="pubtitcont pubtitcontts">
-                    <input placeholder="简单介绍下自己" />
-                </div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist" onclick="signature()">
+      <div class="setbox">
+        <div class="pubtitlist">
+          <label>所属国籍</label>
+          <div class="pubtitcont">
+            <span>中国</span>
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist" onclick="carid()">
+          <label>身份证</label>
+          <div class="pubtitcont pubtitcontts">
+            <input placeholder="请输入证件号码" />
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist" onclick="nickName()">
+          <label>昵称</label>
+          <div class="pubtitcont pubtitcontts">
+            <input value="昵称" />
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist">
+          <label>性别</label>
+          <div class="pubtitcont pubtitcontts">
+            <select>
+              <option>男</option>
+              <option>女</option>
+            </select>
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist">
+          <label>常住地</label>
+          <div class="pubtitcont pubtitcontts">
+            <input value="苏州" />
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist">
+          <label>生日</label>
+          <div class="pubtitcont pubtitcontts">
+            <input placeholder="完善你的个人信息" />
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist" onclick="introduce()">
+          <label>自我介绍</label>
+          <div class="pubtitcont pubtitcontts">
+            <input placeholder="简单介绍下自己" />
+          </div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <!-- <div class="pubtitlist" onclick="signature()">
                 <label>个性签名</label>
                 <div class="pubtitcont pubtitcontts">
                     <input placeholder="简单介绍下自己" />
                 </div>
                 <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist">
-                <label>个性标签</label>
-                <div class="pubtitcont pubtitcontts"></div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist" onclick="mycode()">
-                <label>二维码名片</label>
-                <div class="pubtitcont pubtitcontts"></div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
-            <div class="pubtitlist" onclick="headImg();">
-                <label>头像设置</label>
-                <div class="pubtitcont pubtitcontts"></div>
-                <img src="../img/listmore.png" class="listmore" />
-            </div>
+            </div> -->
+        <div class="pubtitlist">
+          <label>个性标签</label>
+          <div class="pubtitcont pubtitcontts"></div>
+          <img src="../img/listmore.png" class="listmore" />
         </div>
-
+        <div class="pubtitlist" onclick="mycode()">
+          <label>二维码名片</label>
+          <div class="pubtitcont pubtitcontts"></div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+        <div class="pubtitlist" onclick="headImg();">
+          <label>头像设置</label>
+          <div class="pubtitcont pubtitcontts"></div>
+          <img src="../img/listmore.png" class="listmore" />
+        </div>
+      </div>
     </div>
     <script>
-        $(".back").click(function () {
-            window.history.go(-1);
-        })
-        function introduce() {
-            window.location.href = 'SetIntroduce.html'
-        }
-        function signature() {
-            window.location.href = 'SetSignature.html'
-        }
-        function carid() {
-            window.location.href = 'SetIdCars.html'
-        }
-        function mycode() {
-            window.location.href = 'MyQrCode.html'
-        }
-        function nickName(){
-            window.location.href = 'RestNickName.html'
-        }
-        function headImg(){
-            window.location.href = 'ChoosePortrait.html'
-        }
+      $(".back").click(function() {
+        window.history.go(-1);
+      });
+      function introduce() {
+        window.location.href = "SetIntroduce.html";
+      }
+      function signature() {
+        window.location.href = "SetSignature.html";
+      }
+      function carid() {
+        window.location.href = "SetIdCars.html";
+      }
+      function mycode() {
+        window.location.href = "MyQrCode.html";
+      }
+      function nickName() {
+        window.location.href = "RestNickName.html";
+      }
+      function headImg() {
+        window.location.href = "ChoosePortrait.html";
+      }
     </script>
-</body>
-
+  </body>
 </html>

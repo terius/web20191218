@@ -72,6 +72,13 @@
     }
     return com.getDate(d) + " " + hour + ":" + minute + ":" + second;
   };
+  com.convertUnixTime = function(unix_timestamp) {
+    if (!unix_timestamp) {
+      return "";
+    }
+    var date = new Date(unix_timestamp);
+    return com.getDateTime(date);
+  };
   /************************************时间处理【结束】************************************/
 
   /************************************jquery ajax处理【开始】************************************/
@@ -92,26 +99,32 @@
   com.ajaxComplete = function(event, xhr, options) {
     //  $.hideLoading();
     if (event.responseJSON) {
+      // return event.responseJSON.data;
       com.showLog(event.responseJSON);
     }
   };
 
-  com.ajaxFail = function(error, aaaa, bbbb, vvvv) {
-    $.alert(error.responseText, "错误");
+  com.ajaxFail = function(error) {
+    alert(error.responseText, "错误");
     com.showLog(error);
   };
 
-  com.dataFilter = function(data) {
-    return data;
+  com.dataFilter = function(data, type) {
+    var result = JSON.parse(data);
+    if (!result.success) {
+      alert(result.msg);
+      throw result.msg;
+    }
+    return JSON.stringify(result);
   };
 
   //修改jquery全局ajax事件
-  // $.ajaxSettings = $.extend($.ajaxSettings, {
-  //     error: com.ajaxFail,
-  //    // beforeSend: com.ajaxBeforeSend,
-  //     complete: com.ajaxComplete,
-  //     // dataFilter: com.dataFilter
-  // });
+  $.ajaxSettings = $.extend($.ajaxSettings, {
+    error: com.ajaxFail,
+    beforeSend: com.ajaxBeforeSend,
+    complete: com.ajaxComplete,
+    dataFilter: com.dataFilter
+  });
 
   com.ajaxQuery = function(url, data, dataType) {
     dataType = dataType || "json";
@@ -125,13 +138,89 @@
     });
   };
 
+  com.postForm = function(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for (var key in params) {
+      if (params.hasOwnProperty(key)) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+
+        form.appendChild(hiddenField);
+      }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+
+    document.body.removeChild(form);
+  };
+
+  com.api.url = "http://zone.sll.link:20001/";
+  com.api.defaultOpts = {
+    //beforeSend: function (xhr) {
+    //    xhr.setRequestHeader('Authorization', 'Bearer ' + com.api.token);
+    //},
+    dataType: "json",
+    type: "GET",
+    contentType: "application/json"
+  };
+  com.requestApi = function(method, data, option) {
+    var options = $.extend({}, com.api.defaultOpts, option);
+    if (!options.notcheck) {
+      options.beforeSend =
+        options.beforeSend ||
+        function(xhr) {
+          var token = sessionStorage.getItem("token");
+          if (!token) {
+            alert("用户未登陆或已过期");
+            throw "用户未登陆或已过期";
+          }
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+        };
+    }
+    options.data = data;
+    options.url = com.api.url + method;
+    // com.alert(options);
+    return $.ajax(options);
+  };
+
+  com.getData = async function(method, requestData) {
+    return com.requestApi(method, requestData);
+  };
+
+  com.getDataAny = async function(method, requestData) {
+    return com.requestApi(method, requestData, { notcheck: true });
+  };
+
+  com.postData = function(method, data) {
+    return com.requestApi(method, data, { type: "POST" });
+    // if (location.hostname == "localhost") {
+    // }
+    // else {
+    //     return com.requestApi(method, data, { type: "POST" });
+    // }
+  };
+
   /************************************jquery ajax处理【结束】************************************/
 
   /************************************一般js方法【开始】************************************/
   com.showLog = function(msg, title) {
     var now = com.getNowDateTime();
     var t = title ? title : "";
-    console.log(msg, now + "  " + t);
+    if (typeof msg === "string") {
+      console.log(msg, now + "  " + t);
+    } else {
+      console.log(JSON.stringify(msg, null, 4), now + "  " + t);
+    }
   };
 
   //通用警告框
@@ -364,81 +453,6 @@
     });
   };
 
-  com.postForm = function(path, params, method) {
-    method = method || "post"; // Set method to post by default if not specified.
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    for (var key in params) {
-      if (params.hasOwnProperty(key)) {
-        var hiddenField = document.createElement("input");
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("name", key);
-        hiddenField.setAttribute("value", params[key]);
-
-        form.appendChild(hiddenField);
-      }
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-
-    document.body.removeChild(form);
-  };
-
-  com.api.url = "/api/";
-  com.api.defaultOpts = {
-    //beforeSend: function (xhr) {
-    //    xhr.setRequestHeader('Authorization', 'Bearer ' + com.api.token);
-    //},
-    dataType: "json",
-    type: "GET",
-    contentType: "application/json"
-  };
-  com.requestApi = function(method, data, option) {
-    var options = $.extend({}, com.api.defaultOpts, option);
-    options.beforeSend =
-      options.beforeSend ||
-      function(xhr) {
-        var token = sessionStorage.getItem("token");
-        if (!token) {
-          alert("用户未登陆或已过期");
-          throw "用户未登陆或已过期";
-        }
-        xhr.setRequestHeader("Authorization", "Bearer " + token);
-      };
-    options.data = data;
-    options.url = com.api.url + method;
-    // com.alert(options);
-    return $.ajax(options);
-  };
-
-  com.getData = async function(jsonName, method, requestData) {
-    // if (location.hostname == "localhost") {
-    var res = await $.getJSON(`../data/${jsonName}.json`);
-    if (res[method]) {
-      return res[method];
-    }
-    console.log(res);
-    alert("数据错误");
-    // }
-    // else {
-    //     return com.requestApi(method, requestData);
-    // }
-  };
-
-  com.postData = function(method, data) {
-    // if (location.hostname == "localhost") {
-    // }
-    // else {
-    //     return com.requestApi(method, data, { type: "POST" });
-    // }
-  };
-
   com.triggerClick = function(node) {
     if (document.createEvent) {
       var evt = document.createEvent("MouseEvents");
@@ -562,6 +576,28 @@
     // );
   };
 
+  com.addNoDupToArray = function(array, key, item) {
+    if (arguments.length === 3) {
+      if (!this.checkArrayExistValue(array, key, item[key])) {
+        array.push(item);
+      }
+    } else {
+      if (!this.checkArrayExistValue(array, key)) {
+        array.push(key);
+      }
+    }
+  };
+
+  com.getNodupInArray = function(array, key) {
+    const arr = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i][key] != "") {
+        com.addNoDupToArray(arr, array[i][key]);
+      }
+    }
+    return arr;
+  };
+
   com.randomNum = function(minNum, maxNum) {
     switch (arguments.length) {
       case 1:
@@ -628,6 +664,24 @@
     } catch {
       return val;
     }
+  };
+
+  com.isNumeric = function(value) {
+    return /^-{0,1}\d+$/.test(value);
+  };
+
+  com.pageQuery = function(array, pageIndex, pageCount) {
+    pageIndex = pageIndex || 1;
+    pageCount = pageCount || 10;
+    let start = (pageIndex - 1) * pageCount;
+    let end = start + pageCount;
+    let arr = [];
+    for (let i = 0; i < array.length; i++) {
+      if (i >= start && i < end) {
+        arr.push(array[i]);
+      }
+    }
+    return arr;
   };
 
   return com;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/mobile.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="/js/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/js/weui/weui.min.css" />
 
     <style>
       .swpage {
@@ -68,14 +69,39 @@
           <div>aaaaa</div>
         </div>
       </div>
+      <div>
+        <div class="weui-uploader__bd">
+          <ul class="weui-uploader__files" id="uploaderFiles">
+            <li
+              v-for="file in selectFiles"
+              class="weui-uploader__file"
+              :style="'background-image:url(' + file.src +')'"
+            ></li>
+          </ul>
+          <div class="weui-uploader__input-box">
+            <input
+              @change="changeFile"
+              ref="fileupload"
+              id="uploaderInput"
+              class="weui-uploader__input"
+              type="file"
+              accept="image/*"
+              multiple
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <script type="text/javascript" src="../data/all.js"></script>
-    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
     <script src="/js/swiper/swiper.min.js"></script>
     <script>
       var vue = new Vue({
         el: ".root",
+        data: {
+          selectFiles: []
+        },
         mounted() {
           var mySwiper = new Swiper(".swiper-container", {
             //autoplay: true //可选选项，自动滑动
@@ -86,6 +112,36 @@
           $("#btn2").click(function() {
             mySwiper.slideNext();
           });
+        },
+        methods: {
+          changeFile(e) {
+            console.log("changeFile");
+            var src,
+              url = window.URL || window.webkitURL || window.mozURL,
+              files = e.target.files;
+            if (files.length > 0) {
+              for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+                if (url) {
+                  src = url.createObjectURL(file);
+                } else {
+                  src = e.target.result;
+                }
+                let checkFile = this.selectFiles.find(
+                  d => d.name == file.name && d.size == file.size
+                );
+                if (!checkFile) {
+                  this.selectFiles.push({
+                    name: file.name,
+                    size: file.size,
+                    src: src
+                  });
+                }
+
+                console.log(this.selectFiles);
+              }
+            }
+          }
         }
       });
     </script>

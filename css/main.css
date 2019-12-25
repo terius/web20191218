@@ -54,6 +54,12 @@ a h1 {
   background-size: contain;
 }
 
+.main-root .focuspic .live-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .main-root .type li {
   width: 16% !important;
 }
@@ -78,6 +84,7 @@ a h1 {
 
 .main-root .bloglist .bloglist__item {
   padding-right: 0.56rem;
+  padding-bottom: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50%;
@@ -112,6 +119,27 @@ a h1 {
 
 .main-root .bloglist .bloglist__item .blogbox {
   padding-bottom: 1rem;
+}
+
+.main-root .pubbtn.coversure {
+  margin-top: 1rem;
+}
+
+.main-root .indexcoverbox .coverscroll {
+  position: relative;
+}
+
+.main-root .indexcoverbox .coverscroll .close-tab {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: #256d30;
+}
+
+.main-root .indexcoverbox .coverscroll .selecttype {
+  background-color: #256d30;
+  color: #ffffff;
 }
 
 .detail-root .focus2 {
@@ -212,7 +240,7 @@ a h1 {
 }
 
 .detail-root .comdetail {
-  max-height: 30%;
+  max-height: 60%;
   z-index: 9999;
 }
 
@@ -227,5 +255,10 @@ a h1 {
 
 .blog-root .type li {
   width: 3rem !important;
+}
+
+.register-root .iscanclick {
+  background-color: #256d30;
+  color: #fff;
 }
 /*# sourceMappingURL=main.css.map */

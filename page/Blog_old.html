@@ -7,14 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>博客</title>
     <link rel="stylesheet" href="../css/mobile.css" />
-    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="/js/jquery-2.1.1.min.js"></script>
 </head>
 
 <body>
-    <div class="bloghead">
+    <div class="bloghead blogheadts">
         <div class="personpic">
             <img src="../img/pic1.png" />
+            <h1 class="nick">管同学</h1>
+            <p class="nicktip">不只是夏天，还有四季</p>
         </div>
+       
         <div class="sxbox">
             <span>私信</span>
             <span class="attspan">关注</span>
@@ -207,6 +210,7 @@
                     </li>
                 </ul>
             </div>
+            <div class="pubbtn coversure">确定</div>
         </div>
     </div>
 
@@ -243,7 +247,10 @@
             $(".coverbox").hide();
         })
         $(".coverul li").click(function () {
-            $(this).addClass("lisel");
+            $(this).toggleClass("lisel");
+        })
+        $(".coversure").click(function () {
+            $(".coverbox").hide();
         })
         window.onload = function () {
             $(".coverbox").height(window.screen.availHeight - $(".searchbox").height());

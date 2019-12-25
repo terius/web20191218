@@ -31,10 +31,10 @@
       <div class="combox comboxts" style="padding-bottom: 4rem;">
         <div class="commentcont">
           <div class="blogbox commentbox blogboxts">
-            <img :src="info.peopleInfo.pic" onclick="Blog()" />
+            <img :src="info.user_info.head_picture" onclick="Blog()" />
             <h1>{{info.title}}</h1>
             <div class="comnum">
-              <span>{{info.addTime}}&nbsp;{{info.peopleInfo.title}}</span>
+              <span>{{time}}&nbsp;{{info.user_info.title}}</span>
             </div>
             <span v-if="!focus" class="focus2" @click="focus=!focus">关注</span>
             <span v-else class="hasfocus" @click="focus=!focus">已关注</span>
@@ -44,7 +44,7 @@
             <div class="detail-pic">
               <div
                 class="detail-pic__item"
-                v-for="(picurl,index) in info.pic"
+                v-for="(picurl,index) in picList"
                 v-bind:class="picWidth"
               >
                 <div>
@@ -62,7 +62,7 @@
               </li>
              
             </ul> -->
-            <div class="detail-text" v-html="info.text"></div>
+            <div class="detail-text" v-html="info.content"></div>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
             <div class="comnum">
               <span>{{item.time}}</span>
               <span class="collectnum">
-                {{item.like}}<img src="../img/like.png" />
+                <img src="../img/like.png" />
                 <img src="../img/reply.png" class="reply" />
               </span>
             </div>
@@ -251,15 +251,15 @@
       </div>
     </div>
     <script type="text/javascript" src="../data/all.js"></script>
-    <script src="https://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/vue.min.js"></script>
 
     <!-- Core JS file -->
     <script src="/js/photoswipe/photoswipe.js"></script>
 
     <!-- UI JS file -->
     <script src="/js/photoswipe/photoswipe-ui-default.js"></script>
-
+    <script src="/data/server.js"></script>
     <script src="../js/common.js?v=20191215"></script>
     <script>
       //   $(".back").click(function() {
@@ -338,7 +338,9 @@
         el: "#root",
         data: {
           showShareCover: false,
-          info: {},
+          info: {
+            user_info: {}
+          },
           id: com.getParam("id"),
           focus: false,
           showSwiper: false,
@@ -352,17 +354,13 @@
           //     items: this.info.pic
           //   });
           initJQFun();
-          com.initPullRefresh("comment-list");
+          //  com.initPullRefresh("comment-list");
           //  this.initPhotoSwipe();
         },
         methods: {
-          initData() {
-            this.info = detail.find(d => d.id == this.id);
-            this.info.peopleInfo = people.find(d => d.id == this.info.peopleId);
-            this.info.comment = comment.filter(d => d.detailId == this.id);
-            this.info.comment.forEach(item => {
-              item.peopleInfo = people.find(d => d.id == item.peopleId);
-            });
+          async initData() {
+            this.info = await server.getBlogInfo({ guid: this.id });
+            console.log(this.info);
           },
           toMainPage() {
             location.href = "/page/index.html";
@@ -371,7 +369,7 @@
             var pswpElement = document.querySelectorAll(".pswp")[0];
             var items = [];
             // build items array
-            this.info.pic.forEach(e => {
+            this.picList.forEach(e => {
               items.push({ src: e, w: 400, h: 300 });
             });
             // define options (if needed)
@@ -409,7 +407,7 @@
         watch: {},
         computed: {
           picWidth: function() {
-            let picCount = this.info.pic.length;
+            let picCount = this.picList.length;
 
             let width = "width32";
             if (picCount == 1) {
@@ -419,6 +417,15 @@
             }
             //   alert(width);
             return width;
+          },
+          picList() {
+            if (!this.info.pictures) {
+              return [];
+            }
+            return this.info.pictures.split(",");
+          },
+          time() {
+            return com.convertUnixTime(this.info.create_time);
           }
         }
       });
